@@ -46,6 +46,7 @@ nav li a{
     padding: .5em 1em;
     font-size: 20px;
     font-weight: bold;
+    border-radius: 15px;
 }
 
 nav ul li a:hover {

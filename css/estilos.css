@@ -1,0 +1,74 @@
+/*Falta meter el normalizer*/
+
+/* * {
+    outline: 1px solid red;
+} */
+
+
+/*Aquí empieza la cabecera*/
+
+header {
+    display: flex;
+    flex-direction: row;
+}
+
+#logo {
+    width: 105px;
+    align-self: flex-start;
+}
+
+#nombre {
+    display: inline-block;
+    align-self: center;
+    margin: auto;
+    font-size: 35px;
+    font-family: 'Yellowtail', cursive;
+    color: #D9A23D;
+}
+
+/*Aquí empieza el menú*/
+
+nav {
+    padding: 1em;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li a{
+    color: black;
+    display: block;
+    text-decoration: none;
+    padding: .5em 1em;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    background: black;
+    color: white;
+}
+.derecha{
+    margin-left: auto;
+    
+}
+/*Aquí empieza el section*/
+
+section{
+    border: 5px solid burlywood;
+    height: 60vh;
+    margin: auto;
+    margin-bottom: 15px;
+    border-radius: 15px;
+}
+/*Aquí empieza el footer*/
+footer{
+    border: 5px solid burlywood;
+    height: 14vh;
+    margin: 0 auto;
+    border-radius: 15px;
+}

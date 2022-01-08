@@ -4,72 +4,95 @@
     outline: 1px solid red;
 } */
 
-
 /*Aquí empieza la cabecera*/
 
 header {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 #logo {
-    width: 105px;
-    align-self: flex-start;
+  width: 105px;
+  align-self: flex-start;
 }
 
 #nombre {
-    display: inline-block;
-    align-self: center;
-    margin: auto;
-    font-size: 35px;
-    font-family: 'Yellowtail', cursive;
-    color: #D9A23D;
+  display: inline-block;
+  align-self: center;
+  margin: auto;
+  font-size: 35px;
+  font-family: "Yellowtail", cursive;
+  color: #d9a23d;
 }
 
 /*Aquí empieza el menú*/
 
 nav {
-    padding: 1em;
+  padding: 1em;
 }
 
 nav ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-nav li a{
-    color: black;
-    display: block;
-    text-decoration: none;
-    padding: .5em 1em;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 15px;
+nav li a {
+  color: #653b23;
+  display: block;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 15px;
 }
-
-nav ul li a:hover {
-    background: black;
-    color: white;
+nav li {
+  margin: 0 10px;
 }
-.derecha{
-    margin-left: auto;
-    
+nav li a:hover {
+  background: #d9a23d;
+  color: white;
+}
+.seleccionado {
+  color: #653b23;
+  background: #d9a23d;
+}
+.derecha {
+  margin-left: auto;
 }
 /*Aquí empieza el section*/
 
-section{
-    border: 5px solid burlywood;
-    height: 60vh;
-    margin: auto;
-    margin-bottom: 15px;
-    border-radius: 15px;
+section {
+  border: 5px solid burlywood;
+  height: 60vh;
+  margin: auto;
+  margin-bottom: 15px;
+  border-radius: 15px;
+}
+
+/*Apartado del carrusel*/
+#carrusel {
+  display: flex;
+}
+.carrusel {
+  width: 300px;
+  height: 250px;
+  margin: 50px auto 25px;
+  border-radius: 15px;
+  outline: 5px solid burlywood;
+  outline-offset: 10px;
+}
+/*Este es el texto que sale debajo del carrusel*/
+#texto-explicativo {
+  /*falta poner el texto de la familia que pone en el proyecto*/
+  text-align: center;
+  padding: 15px;
 }
 /*Aquí empieza el footer*/
-footer{
-    border: 5px solid burlywood;
-    height: 14vh;
-    margin: 0 auto;
-    border-radius: 15px;
+footer {
+  border: 5px solid burlywood;
+  height: 14vh;
+  margin: 0 auto;
+  border-radius: 15px;
 }

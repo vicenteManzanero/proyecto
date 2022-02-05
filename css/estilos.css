@@ -4,6 +4,12 @@
     outline: 1px solid red;
 } */
 
+body{
+  padding: 15px;
+}
+
+
+
 /*Aquí empieza la cabecera*/
 
 header {
@@ -61,11 +67,41 @@ nav li a:hover {
 .derecha {
   margin-left: auto;
 }
+
+#menu1 img {
+  width: 100px;
+  height: 100px;
+}
+#menu1 .card {
+  border: 5px solid burlywood;
+  border-radius: 15px;
+}
+#menu1 .card:hover {
+  border: 5px solid black;
+  border-radius: 15px;
+}
+#menu1 a:link,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: black;
+}
+
+
+#ventanaLogin{
+  border: 5px solid burlywood;
+  border-radius: 15px;
+}
+
+
+
+
+
 /*Aquí empieza el section*/
 
 section {
   border: 5px solid burlywood;
-  height: 60vh;
+  height: 70vh;
   margin: auto;
   margin-bottom: 15px;
   border-radius: 15px;
@@ -92,11 +128,7 @@ section {
 /*Aquí empieza el footer*/
 footer {
   border: 5px solid burlywood;
-  height: 14vh;
+  height: 8vh;
   margin: 0 auto;
   border-radius: 15px;
-}
-#menu1 img{
-  width: 80px;
-  height: 80px;
 }

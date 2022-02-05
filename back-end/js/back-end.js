@@ -15,7 +15,7 @@ const productos= collection(db,"Productos");
 
 const guardarProducto = async (productos,productoCreado) => {
     const ProductoGuardado = await addDoc(productos, productoCreado);
-    console.log(`Producto guardado con el id ${ProductoGuardado.id}`);
+    console.log(`Producto guardado con el id ${ProductoGuardado.data().nombre}`);
     mensajesUsuario(`Producto añadido con éxito `) ;
   };
 

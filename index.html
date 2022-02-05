@@ -24,7 +24,9 @@
             <li><a href="./productos.html">Productos</a></li>
             <li><a href="./contacto.html">Contacto</a></li>
             <li><a href="./carrito.html">Carrito</a></li>
-            <li class="derecha"><a href="#" id="login" data-toggle="modal" data-target="#exampleModal">Login</a></li>
+            <li class="derecha"><a href="#" id="login" data-toggle="modal" data-target="#exampleModal">Login</a>
+                <a href="#" id="login" data-toggle="modal" data-target="#exampleModa2">Crear Cuenta</a>
+            </li>
         </ul>
     </nav>
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true"
@@ -36,9 +38,8 @@
                 </div>
                 <div class="modal-body">
                     <form >
-                        <input type="text" name="user" placeholder="Username" id="usuario">
-                        <input type="password" name="pass" placeholder="Password" id="clave">
-                        <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+                        <input type="text" name="user" placeholder="Correo" id="usuario"><br>
+                        <input type="password" name="pass" placeholder="Contraseña" id="clave"><br>
                       </form>
                 </div>
                 <div class="modal-footer">
@@ -48,6 +49,26 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true"
+    role="dialog">
+    <div class="modal-dialog" role="document" >
+        <div class="modal-content" id="ventanaLogin">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">INTRODUZCA SU CORREO Y SU CONTRASEÑA</h5>
+            </div>
+            <div class="modal-body">
+                <form >
+                    <input type="text" name="user" placeholder="Correo" id="usuario"><br>
+                    <input type="password" name="pass" placeholder="Contraseña" id="clave"><br>
+                  </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cerrar">CERRAR</button>
+                <button type="button" class="btn btn-primary">ENVIAR</button>
+            </div>
+        </div>
+    </div>
+</div>
     <div class="modal-backdrop fade show" id="backdrop" style="display: none;"></div>
     
     <section>

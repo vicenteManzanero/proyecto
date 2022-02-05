@@ -68,6 +68,10 @@ nav li a:hover {
   margin-left: auto;
 }
 
+li.derecha a{
+  display: inline;
+}
+
 #menu1 img {
   width: 100px;
   height: 100px;
@@ -92,7 +96,12 @@ a:active {
   border: 5px solid burlywood;
   border-radius: 15px;
 }
-
+.modal-body{
+  text-align: center;
+}
+.modal-body input{
+  text-align: center;
+}
 
 
 

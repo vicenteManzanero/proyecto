@@ -38,6 +38,7 @@ export const crearNuevoUsuario =(correo,contraseña,telf)=>{//Crea un nuevo usua
 export const iniciarSesionComprobacion = (correo, contra) => { //Para iniciar sesión
     signInWithEmailAndPassword(autentificacion, correo, contra)
       .then((credenciales) => {
+        if(correo=="admin@admin.es")window.location.href="../../back-end/back-end.html";
         console.log("Sesión Iniciada");
         const actual = credenciales.user;
         console.log(actual);
@@ -68,12 +69,13 @@ export const iniciarSesionComprobacion = (correo, contra) => { //Para iniciar se
   }
 
 
-  export const cerrarSesion = () => {//Para cerrar la sesión indicada.
+  export const cerrarSesion = (ruta="./index.html") => {//Para cerrar la sesión indicada.
     autentificacion
       .signOut()
       .then(() => {
        cambiarseccionLogin(false);
         u.mensajesUsuario("Sesión cerrada correctamente");  
+        window.location.href(ruta);
       })
       .catch((error) => {
         console.log(error);

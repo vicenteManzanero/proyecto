@@ -1,22 +1,20 @@
 
-<<<<<<< HEAD
 'use strict';
 /* En este archivo tendremos la posibilidad de realizar un CRUD completo sobre los productos ya que a este archivo solo tiene permiso para acceder el admin*/ 
-=======
-
-/* En este archivo tendremos la posibilidad de realizar un CRUD completo sobre los productos ya que a este archivo solo tiene permiso para acceder el admin*/
->>>>>>> 97df775eef1dff7a365e72234ef8887f58fae416
-import { app } from "../../js/fireBase.js";
+import { app,autentificacion } from "../../js/fireBase.js";
 import {
   getFirestore,
   collection, getDocs, query,
   where, orderBy, addDoc, doc, getDoc, updateDoc, arrayUnion, arrayRemove, deleteDoc
 } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 import { ProductoJSON, mensajesUsuario } from "./plantillas.js";
+
 window.onload = () => {
   var d = document;
+
   const db = getFirestore(app);
   const productos = collection(db, "Productos");
+  
 
   const guardarProducto = async (productos, productoCreado) => {
     const ProductoGuardado = await addDoc(productos, productoCreado);
@@ -24,13 +22,13 @@ window.onload = () => {
     mensajesUsuario(`Producto añadido con éxito `);
   };
 
-  /*Botones   */
+  /*Botones */
+  var logout= d.getElementById("logout");
   var anyadir = d.getElementById("anyadir");
   var modificar = d.getElementById("modificar");
   var eliminar = d.getElementById("eliminar");
   var crear = d.getElementById("crear");
   crear.addEventListener("click", () => {
-    /**/
     var nombre = d.getElementById("nombreProducto").value;
     var precio = d.getElementById("precio").value;
     var categoria = d.getElementById("categoria").value;
@@ -44,5 +42,19 @@ window.onload = () => {
     //console.log(productoNuevo);
     guardarProducto(productos, productoNuevo);
   }, false);
+  const cerrarSesion = () => {//Para cerrar la sesión indicada.
+    autentificacion
+      .signOut()
+      .then(() => {   
+        window.location.href=("../../index.html");
+        
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  logout.addEventListener("click",()=>{
+    cerrarSesion();
+  })
 
 }

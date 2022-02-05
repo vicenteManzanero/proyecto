@@ -50,7 +50,7 @@ export const openModal = (id1,id2) => {
     document.getElementById(`${id2}`).style.display = "block"
     document.getElementById(`${id2}`).classList.add("show")
 }
-export const closeModal = (id1, id2) => {z
+export const closeModal = (id1, id2) => {
     d.getElementById(`${id1}`).style.display = "none"
     d.getElementById(`${id2}`).style.display = "none"
     d.getElementById(`${id2}`).classList.remove("show")

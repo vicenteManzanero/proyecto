@@ -4,16 +4,17 @@ import * as u from "./utils.js";
 window.onload = () => {
     let d = document;
     let login= d.getElementById('login');
+    let crearCuenta= d.getElementById('crearCuenta');
 
     u.mostrar();
-    d.getElementById('login').addEventListener('click',()=>{
+    login.addEventListener('click',()=>{
         u.openModal('backdrop','exampleModal');
         d.getElementById('cerrar').addEventListener('click',()=>{
             u.closeModal('backdrop','exampleModal')
         },false);
     },false);
 
-    d.getElementById('crearCuenta').addEventListener('click',()=>{
+    crearCuenta.addEventListener('click',()=>{
         u.openModal('backdrop','exampleModal2');
         d.getElementById('cerrarCrear').addEventListener('click',()=>{
             u.closeModal('backdrop','exampleModal2')

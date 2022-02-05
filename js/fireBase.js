@@ -1,6 +1,6 @@
 /*Datos Necesarios para usar Firebase*/ 
-import { initializeApp } from "firebase/app";
-
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
 const firebaseConfig = {
 
@@ -24,3 +24,4 @@ const firebaseConfig = {
 // Initialize Firebase
 
 export const app = initializeApp(firebaseConfig);
+export const autentificacion = getAuth(app);

@@ -4,9 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/estilos.css">
     <title>Admin</title>
 </head>
 <body>
-    
+    <header>
+        <img id="logo" src="../img/logo.jpg" alt="logo" >
+        <div id="nombre">Horno Victoria</div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#" class="seleccionado" id="anyadir">Añadir</a></li>
+            <li><a href="#"  id="modificar">Modificar</a></li>
+            <li><a href="#"  id="eliminar">Eliminar</a></li>
+        </ul>
+    </nav>
+    <section>
+<div id="comunicacion_usuario"></div>
+    <form id="anyadirProducto" >
+        <label for="nombre"> nombre: </label><input type="text" id="nombreProducto" placeholder="Nombre del producto">
+        <label for="categoria"> categoria: </label>   <select  name="categoria" id="categoria">
+            <option value="hojaldre">hojaldre</option>
+            <option value="pan"> pan</option>
+            <option value="tortas"> tortas</option>
+            <option value="bobas"> bobas</option>
+            <option value="rollos"> rollos</option>
+            <option value="refrescos">refrescos </option>
+        </select>
+        <label for="IVA"> Tipo de IVA:</label>   <select name="IVA" id="IVA">
+            <option value="reducido">reducido 10% </option>
+            <option value="superreducido"> superreducido 4%</option>
+            <option value="general"> general 21%</option>
+        </select>
+        <label for="imagen"> FOTO</label><input type="text" id="imagen" placeholder="url de la imagen">
+        <label for="alérgenos"> Alérgenos: </label>  
+        <label>gluten</label>  <input type="checkbox" value="gluten">
+            <label>pescado</label><input  type="checkbox"value="pescado"> 
+            <label>huevo</label>  <input type="checkbox" value="huevo"> 
+        </select>
+        <label for="precio"> Precio</label><input type="number" id="precio" placeholder="Precio del producto en €" min="0" step="0.1">
+      
+        <label for="radio">Por unidad</label><input type="radio" id="unidad" name="radio" value="unidad" checked >
+        <label for="radio"> Por peso</label><input type="radio" id="peso" name="radio"   value="peso">
+        <input type="button" value="Crear producto" id="crear">
+    </form>
+    <script type="module" src="./js/back-end.js"></script>
 </body>
 </html>

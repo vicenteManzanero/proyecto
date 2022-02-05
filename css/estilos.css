@@ -4,6 +4,12 @@
     outline: 1px solid red;
 } */
 
+body{
+  padding: 15px;
+}
+
+
+
 /*Aquí empieza la cabecera*/
 
 header {

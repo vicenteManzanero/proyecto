@@ -80,13 +80,23 @@ nav li a:hover {
   border: 5px solid black;
   border-radius: 15px;
 }
-
 #menu1 a:link,
 a:visited,
 a:active {
   text-decoration: none;
   color: black;
 }
+
+
+#ventanaLogin{
+  border: 5px solid burlywood;
+  border-radius: 15px;
+}
+
+
+
+
+
 /*Aquí empieza el section*/
 
 section {

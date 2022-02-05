@@ -24,17 +24,39 @@
             <li><a href="./productos.html">Productos</a></li>
             <li><a href="./contacto.html">Contacto</a></li>
             <li><a href="./carrito.html">Carrito</a></li>
-            <li class="derecha"><a href="./login.html">Login</a></li>
+            <li class="derecha"><a href="#" id="login" data-toggle="modal" data-target="#exampleModal">Login</a></li>
         </ul>
     </nav>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true"
+        role="dialog">
+        <div class="modal-dialog" role="document" >
+            <div class="modal-content" id="ventanaLogin">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">INTRODUZCA SU CORREO Y SU CONTRASEÑA</h5>
+                </div>
+                <div class="modal-body">
+                    <form >
+                        <input type="text" name="user" placeholder="Username" id="usuario">
+                        <input type="password" name="pass" placeholder="Password" id="clave">
+                        <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+                      </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cerrar">CERRAR</button>
+                    <button type="button" class="btn btn-primary">ENVIAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade show" id="backdrop" style="display: none;"></div>
+    
     <section>
         <div id="carrusel">
 
         </div>
     </section>
     <footer>
-
-    </footer>
+    </footer> 
     <script type="module" src="./js/index.js"></script>
 </body>
 </html>

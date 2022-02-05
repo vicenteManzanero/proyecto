@@ -14,23 +14,43 @@ export const mostrar = () => {
         }
     }, 3000);
 }
-
-
-export const openModal = (id1,id2) => {
-    document.getElementById(`${id1}`).style.display = "block"
-    document.getElementById(`${id2}`).style.display = "block"
-    document.getElementById(`${id2}`).classList.add("show")
+export const openModal = (id1, id2) => {
+    d.getElementById(`${id1}`).style.display = "block"
+    d.getElementById(`${id2}`).style.display = "block"
+    d.getElementById(`${id2}`).classList.add("show")
 }
-export const closeModal = (id1,id2) => {
-    document.getElementById(`${id1}`).style.display = "none"
-    document.getElementById(`${id2}`).style.display = "none"
-    document.getElementById(`${id2}`).classList.remove("show")
+export const closeModal = (id1, id2) => {z
+    d.getElementById(`${id1}`).style.display = "none"
+    d.getElementById(`${id2}`).style.display = "none"
+    d.getElementById(`${id2}`).classList.remove("show")
 }
-var modal = document.getElementById('exampleModal');
-var modal2 = document.getElementById('exampleModal2');
+var modal = d.getElementById('exampleModal');
+var modal2 = d.getElementById('exampleModal2');
 window.onclick = function (event) {
-    if (event.target == modal ||event.target == modal2 ) {
-        closeModal('backdrop','exampleModal2');
-        closeModal('backdrop','exampleModal');
+    if (event.target == modal || event.target == modal2) {
+        closeModal('backdrop', 'exampleModal2');
+        closeModal('backdrop', 'exampleModal');
     }
+}
+
+
+export const mostrarProducto = (objeto,n) =>{
+    let div = d.createElement('div');
+    div.setAttribute('class','row');
+    div.setAttribute('id',`fila${n}`);
+    div.innerHTML = `
+    <div class= "col d-flex align-items-center justify-content-center">Foto : ${objeto.imagen}</div>
+    <div class= "col d-flex align-items-center justify-content-center"> Nombre : ${objeto.nombre}</div>
+    <div class= "col d-flex align-items-center justify-content-center"> Alergenos : ${objeto.alérgenos[0]}</div>
+    <div class= "col d-flex align-items-center justify-content-center"> Precio: ${objeto.precio}</div>
+    <div class= "col d-flex align-items-center justify-content-center">
+    <input type="text" class="form-control" placeholder="Cantidad" aria-describedby="basic-addon1">
+    </div>
+    <div class= "col d-flex align-items-center justify-content-center">
+    <button type="button" class="btn btn-success">Añadir</button>
+    </div>
+    
+    `;
+    d.getElementById('resultado').appendChild(div);
+
 }

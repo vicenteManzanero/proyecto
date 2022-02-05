@@ -4,7 +4,7 @@
     outline: 1px solid red;
 } */
 
-body{
+body {
   padding: 15px;
 }
 .hidden{
@@ -69,7 +69,7 @@ nav li a:hover {
   margin-left: auto;
 }
 
-li.derecha a{
+li.derecha a {
   display: inline;
 }
 
@@ -92,20 +92,16 @@ a:active {
   color: black;
 }
 
-
-#ventanaLogin{
+#ventanaLogin {
   border: 5px solid burlywood;
   border-radius: 15px;
 }
-.modal-body{
+.modal-body {
   text-align: center;
 }
-.modal-body input{
+.modal-body input {
   text-align: center;
 }
-
-
-
 
 /*Aquí empieza el section*/
 
@@ -129,6 +125,27 @@ section {
   outline: 5px solid burlywood;
   outline-offset: 10px;
 }
+
+#resultado {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+#resultado>div div{
+  height: 150px;
+  
+}
+
+/* .row{
+display: flex;
+vertical-align: middle;
+} */
+
+
+
+
+
+
 /*Este es el texto que sale debajo del carrusel*/
 #texto-explicativo {
   /*falta poner el texto de la familia que pone en el proyecto*/

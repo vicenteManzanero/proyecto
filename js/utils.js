@@ -16,22 +16,21 @@ export const mostrar = () => {
 }
 
 
-export const openModal = () => {
-    document.getElementById("backdrop").style.display = "block"
-    document.getElementById("exampleModal").style.display = "block"
-    document.getElementById("exampleModal").classList.add("show")
+export const openModal = (id1,id2) => {
+    document.getElementById(`${id1}`).style.display = "block"
+    document.getElementById(`${id2}`).style.display = "block"
+    document.getElementById(`${id2}`).classList.add("show")
 }
-export const closeModal = () => {
-    document.getElementById("backdrop").style.display = "none"
-    document.getElementById("exampleModal").style.display = "none"
-    document.getElementById("exampleModal").classList.remove("show")
+export const closeModal = (id1,id2) => {
+    document.getElementById(`${id1}`).style.display = "none"
+    document.getElementById(`${id2}`).style.display = "none"
+    document.getElementById(`${id2}`).classList.remove("show")
 }
-// Get the modal
 var modal = document.getElementById('exampleModal');
-
-// When the user clicks anywhere outside of the modal, close it
+var modal2 = document.getElementById('exampleModal2');
 window.onclick = function (event) {
-    if (event.target == modal) {
-        closeModal()
+    if (event.target == modal ||event.target == modal2 ) {
+        closeModal('backdrop','exampleModal2');
+        closeModal('backdrop','exampleModal');
     }
 }

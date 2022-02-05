@@ -14,6 +14,35 @@ export const mostrar = () => {
         }
     }, 3000);
 }
+export const comprobarDatos=(correo, password, telf="")=>{//Función creada para comprobar los datos de iniciar sesión y registrarse;
+    var comprobacionCorreo=(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(correo));//Comprobamos el correo electrónico.
+    console.log(correo);
+    console.log(password);
+    
+    var comprobarPassword=(/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&*-])[A-Za-z\d@$!%*?&]{8,}$/.test(password));//Obligamos a una constraseña segura de mínimo ocho caracteres, al menos una letra mayúscula, una letra minúscula, un número y un carácter especial.
+    var comprobacionTelf=(/(\+34|0034|34)?[ -]*(6|7)[ -]*([0-9][ -]*){8}/).test(telf);
+    console.log(comprobacionCorreo);
+    console.log(comprobarPassword);
+    console.log(comprobacionTelf);
+    if(telf=="") return (comprobarPassword && comprobacionCorreo);//Para el inicio de sesión .
+    else  return (comprobarPassword && comprobacionCorreo && comprobacionTelf);//Para registrase por primera vez.
+
+}
+export const nuevoUsuarioJSON=(Correo,Telf)=>{// Para crear el usuario con el formato deseado.
+    return { correo:Correo,
+        telefono:Telf,
+        pedidos:""
+
+    }
+}
+export function mensajesUsuario(texto){//Para comunicar al usuario todo lo que va ocurriendo
+    let div=  document.getElementById("comunicacion_usuario");
+    div.classList.remove("hidden");
+    div.innerHTML= texto;
+    setTimeout(() => {
+       div.classList.add("hidden");   
+    }, 3000);
+   }
 
 
 export const openModal = (id1,id2) => {

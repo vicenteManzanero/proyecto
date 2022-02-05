@@ -1,5 +1,5 @@
 
-
+'use strict';
 /* En este archivo tendremos la posibilidad de realizar un CRUD completo sobre los productos ya que a este archivo solo tiene permiso para acceder el admin*/ 
 import { app } from "../../js/fireBase.js";
 import {

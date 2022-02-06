@@ -92,9 +92,12 @@ a:active {
   color: black;
 }
 
-#ventanaLogin {
+#ventanaLogin{
   border: 5px solid burlywood;
   border-radius: 15px;
+}
+#cabeceraArticulos {
+  margin-right: 25px;
 }
 .modal-body {
   text-align: center;

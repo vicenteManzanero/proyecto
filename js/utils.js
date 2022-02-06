@@ -69,11 +69,11 @@ export const mostrarProducto = (objeto,n) =>{
     let div = d.createElement('div');
     div.setAttribute('class','row');
     div.setAttribute('id',`fila${n}`);
-    div.innerHTML = `
-    <div class= "col d-flex align-items-center justify-content-center">Foto : ${objeto.imagen}</div>
-    <div class= "col d-flex align-items-center justify-content-center"> Nombre : ${objeto.nombre}</div>
-    <div class= "col d-flex align-items-center justify-content-center"> Alergenos : ${objeto.alérgenos[0]}</div>
-    <div class= "col d-flex align-items-center justify-content-center"> Precio: ${objeto.precio}</div>
+    div.innerHTML =`
+    <div class= "col d-flex align-items-center justify-content-center">${objeto.imagen}</div>
+    <div class= "col d-flex align-items-center justify-content-center">${objeto.nombre}</div>
+    <div class= "col d-flex align-items-center justify-content-center">${objeto.alérgenos[0]}</div>
+    <div class= "col d-flex align-items-center justify-content-center">${objeto.precio}</div>
     <div class= "col d-flex align-items-center justify-content-center">
     <input type="text" class="form-control" placeholder="Cantidad" aria-describedby="basic-addon1">
     </div>
@@ -84,4 +84,16 @@ export const mostrarProducto = (objeto,n) =>{
     `;
     d.getElementById('resultado').appendChild(div);
 
+}
+export const crearCabecera = ()=>{
+    let div = d.createElement('div');
+    div.setAttribute('class','row');
+    div.innerHTML = `
+    <div class= "col d-flex justify-content-center cabeceraArticulo sticky">FOTO</div>
+    <div class= "col d-flex justify-content-center cabeceraArticulo">NOMBRE</div>
+    <div class= "col d-flex justify-content-center cabeceraArticulo">ALÉRGENOS</div>
+    <div class= "col d-flex justify-content-center cabeceraArticulo">PRECIO</div>
+    <div class= "col d-flex justify-content-center cabeceraArticulo">CANTIDAD</div>
+    <div class= "col d-flex justify-content-center cabeceraArticulo">AÑADIR</div>`;
+    d.getElementById('resultado').appendChild(div);
 }

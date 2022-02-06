@@ -17,6 +17,7 @@ let categoriaActual = getParameterByName('cat');
 
 const obtenerArticulos = async () => {
     try {
+        u.crearCabecera();
         const consulta = await query(productos,where('categoria', '==', categoriaActual));
         const documentos = await onSnapshot(consulta, (col) => {
             col.docs.map((documento,index) => {

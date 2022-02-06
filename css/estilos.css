@@ -7,7 +7,7 @@
 body {
   padding: 15px;
 }
-.hidden{
+.hidden {
   display: none !important;
 }
 
@@ -102,6 +102,13 @@ a:active {
 .modal-body input {
   text-align: center;
 }
+input[type="text"] {
+  text-align: center;
+}
+
+.cabeceraArticulo {
+  height: 25px !important;
+}
 
 /*Aquí empieza el section*/
 
@@ -131,20 +138,14 @@ section {
   overflow-y: scroll;
 }
 
-#resultado>div div{
+#resultado > div div {
   height: 150px;
-  
 }
 
 /* .row{
 display: flex;
 vertical-align: middle;
 } */
-
-
-
-
-
 
 /*Este es el texto que sale debajo del carrusel*/
 #texto-explicativo {

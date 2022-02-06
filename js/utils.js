@@ -47,9 +47,20 @@ export function mensajesUsuario(texto) {//Para comunicar al usuario todo lo que 
 
 
 export const openModal = (id1, id2) => {
-    document.getElementById(`${id1}`).style.display = "block"
-    document.getElementById(`${id2}`).style.display = "block"
-    document.getElementById(`${id2}`).classList.add("show")
+    d.getElementById(`${id1}`).style.display = "block"
+    d.getElementById(`${id2}`).style.display = "block"
+    d.getElementById(`${id2}`).classList.add("show")
+}
+export const openModalArticulo = (id1, id2, datos) => {
+    d.getElementById(`${id1}`).style.display = "block"
+    d.getElementById(`${id2}`).style.display = "block"
+    d.getElementById(`${id2}`).classList.add("show");
+    d.getElementById('datosModalArticulo').innerHTML = `
+    ${datos.imagen}<br>
+    ${datos.nombre}<br>
+    ${datos.precio}<br>
+    `;
+
 }
 export const closeModal = (id1, id2) => {
     d.getElementById(`${id1}`).style.display = "none"
@@ -69,6 +80,9 @@ export const mostrarProducto = (objeto, n) => {
     let div = d.createElement('div');
     div.style.cursor = 'pointer';
     div.setAttribute('class', 'row ');
+    div.setAttribute('data-toggle', 'modal');
+    div.setAttribute('data-target', `modalArticulos${n}`);
+
     div.setAttribute('id', `fila${n}`);
     div.innerHTML = `
     <div class= "col d-flex align-items-center justify-content-center">${objeto.imagen}</div>

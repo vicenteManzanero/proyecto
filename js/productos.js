@@ -48,9 +48,25 @@ obtenerArticulos();
 
 
 //funcion para mostrar los articulos ampiados
-d.getElementById('resultado').addEventListener('click', (e) => {
-   let fila = e.target.parentNode;
-   fila.setAttribute('data-toggle','modal');
-   fila.setAttribute('data-target','modalArticulos');
-console.log(e.target.parentNode);
-}, false);
+/* d.getElementById('resultado').addEventListener('click', (e) => {
+    d.querySelector('div[tabindex="-1"]').setAttribute('id', e.target.parentNode.getAttribute('data-target'));
+    let tar = e.target.parentNode.getAttribute('data-target');
+    let datos = {};
+    datos.nombre = e.target.parentNode.children[1].innerHTML;
+    datos.imagen = e.target.parentNode.children[0].innerHTML;
+    e.target.parentNode.children[3].innerHTML?datos.precio = e.target.parentNode.children[3].innerHTML:datos.precio ="";
+    u.openModalArticulo('backdrop2', tar, datos);
+
+    d.getElementById('anadirArticulo').addEventListener('click', () => {
+     console.log('añadirr al carrito');
+        //Aquí la funcion que añade productos
+    }, false);
+
+    var modal = d.getElementById(e.target.parentNode.getAttribute('data-target'));
+    window.onclick = function (event) {
+        if (event.target == modal || e.target.parentNode.getAttribute('data-target') == null) {
+            u.closeModal('backdrop2', e.target.parentNode.getAttribute('data-target'));
+        }
+    }
+
+}, false); */

@@ -22,49 +22,49 @@
     </header>
     <nav>
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true"
-        role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content" id="ventanaLogin">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">INTRODUZCA SU CORREO Y SU CONTRASEÑA</h5>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <input type="text" name="user" placeholder="Correo" id="usuario"><br>
-                        <input type="password" name="pass" placeholder="Contraseña" id="clave"><br>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" id="cerrar">CERRAR</button>
-                    <button type="button" class="btn btn-primary" id="entrar">ENVIAR</button>
+            role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" id="ventanaLogin">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">INTRODUZCA SU CORREO Y SU CONTRASEÑA</h5>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <input type="text" name="user" placeholder="Correo" id="usuario"><br>
+                            <input type="password" name="pass" placeholder="Contraseña" id="clave"><br>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="cerrar">CERRAR</button>
+                        <button type="button" class="btn btn-primary" id="entrar">ENVIAR</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="modal-backdrop fade show" id="backdrop" style="display: none;"></div>
+        <div class="modal-backdrop fade show" id="backdrop" style="display: none;"></div>
 
-    <div class="modal fade" id="exampleModal2" tabindex="-2" aria-labelledby="exampleModalLabel" aria-modal="true"
-        role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content" id="ventanaLogin">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">REGISTRO</h5>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <input type="text" name="user" placeholder="Correo" id="usuarioRegistro"><br>
-                        <input type="tel" name="user" placeholder="Número de teléfono" id="telefonoRegistro"><br>
-                        <input type="password" name="pass" placeholder="Contraseña" id="claveRegistro"><br>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" id="cerrarCrear">CERRAR</button>
-                    <button type="button" class="btn btn-primary" id="registrarCuenta">CREAR CUENTA</button>
+        <div class="modal fade" id="exampleModal2" tabindex="-2" aria-labelledby="exampleModalLabel" aria-modal="true"
+            role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" id="ventanaLogin">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">REGISTRO</h5>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <input type="text" name="user" placeholder="Correo" id="usuarioRegistro"><br>
+                            <input type="tel" name="user" placeholder="Número de teléfono" id="telefonoRegistro"><br>
+                            <input type="password" name="pass" placeholder="Contraseña" id="claveRegistro"><br>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="cerrarCrear">CERRAR</button>
+                        <button type="button" class="btn btn-primary" id="registrarCuenta">CREAR CUENTA</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="modal-backdrop fade show" id="backdrop" style="display: none;"></div>
+        <div class="modal-backdrop fade show" id="backdrop" style="display: none;"></div>
         <ul>
             <li><a href="./index.html">Historia</a></li>
             <li><a href="./productos.html" class="seleccionado">Productos</a></li>
@@ -75,32 +75,46 @@
                 <a href="#" id="crearCuenta" data-toggle="modal" data-target="#exampleModal2">Crear Cuenta</a>
                 <a href="#" id="logout" class="hidden">Cerrar Sesión</a>
             </li>
-       </ul>
+        </ul>
     </nav>
     <div id="cabeceraArticulos"></div>
     <section id="resultado">
 
-        <div class="modal fade"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true"
-        role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content" id="ventanaLogin">
-                <div class="modal-body" id="datosModalArticulo">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" id="cerrarAnadir">CERRAR</button>
-                    <button type="button" class="btn btn-primary" id="anadirArticulo">AÑADIR</button>
+        <div class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" id="ventanaLogin">
+                    <div class="modal-body" id="datosModalArticulo">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="cerrarAnadir">CERRAR</button>
+                        <button type="button" class="btn btn-primary" id="anadirArticulo">AÑADIR</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="modal-backdrop fade show" id="backdrop2" style="display: none;"></div> 
-
-
-
-
+        <div class="modal-backdrop fade show" id="backdrop2" style="display: none;"></div>
 
     </section>
-    <footer></footer>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="mapa col">
+                    <h2>Mapa</h2>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3127.470564678134!2d-0.7615969845129712!3d38.38436748462508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd63c61bbb8c462d%3A0x1457ed6988eb1205!2sC.%20Valle%20Incl%C3%A1n%2C%2025%2C%2003660%20Novelda%2C%20Alicante!5e0!3m2!1ses!2ses!4v1644254488058!5m2!1ses!2ses"
+                        width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="contacto col">
+                    <h2>Horario</h2>
+                    <p>Abierto de Lunes a Viernes de 10:00 a 21:00</p>
+                    <p>Sábados y Domingos de 10:00 a 17:00</p>
+                    <p>Teléfono : 888 88 88 88</p>
+                    <p>Correo Electrónico : hornoVictoria@admin.com</p>
+                </div>
+            </div>
+        </div>
+        <p>Copyright © 2022 Horno Victoria. Todos los derechos reservados.</p>
+    </footer>
 </body>
 <script type="module" src="./js/productos.js"></script>
 

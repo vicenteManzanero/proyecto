@@ -129,8 +129,8 @@ section {
   display: flex;
 }
 .carrusel {
-  width: 300px;
-  height: 250px;
+  width: 700px;
+  height: 600px;
   margin: 50px auto 25px;
   border-radius: 15px;
   outline: 5px solid burlywood;
@@ -160,7 +160,18 @@ vertical-align: middle;
 /*Aquí empieza el footer*/
 footer {
   border: 5px solid burlywood;
-  height: 8vh;
   margin: 0 auto;
   border-radius: 15px;
+  padding: 1em;
 }
+footer p{
+  text-align: center;
+}
+footer h2{
+  text-align: center;
+}
+div .contacto p{
+  margin-top: 2em;
+}
+
+

@@ -2,6 +2,7 @@
 import * as u from "./utils.js";
 
 import { crearNuevoUsuario,iniciarSesionComprobacion , cerrarSesion} from "./login.js";
+import { obtenerArticulos } from "./productos.js";
 //Nivel 1 Eventos de la página
 window.onload = () => {
 /* Botones      */ 
@@ -16,6 +17,7 @@ window.onload = () => {
     let botonContacto=d.getElementById("botonContacto");
     let botonProducto=d.getElementById("botonProducto");
 
+
     /*Final de los botones
     Inicio de las funciones funciones
     */
@@ -24,6 +26,22 @@ window.onload = () => {
    let divHistoria=d.getElementById("historia");
    let divContacto=d.getElementById("contacto");
    let divProducto=d.getElementById("productos");
+   let divProductosCategorias=d.getElementById("productosCategorias");
+
+   /*Para mostrar las categorías segun cliques*/ 
+   let bobas= d.getElementById("bobas");
+   let refrescos= d.getElementById("refrescos");
+   let pan= d.getElementById("pan");
+   let hojaldre =d.getElementById("hojaldre");
+   let rollos= d.getElementById("rollos");
+   let tortas= d.getElementById("tortas");
+
+
+   hojaldre.addEventListener("click",()=>{
+    u.mostrarPartedeMenu(divProductosCategorias);
+    obtenerArticulos("hojaldre");
+
+   },false);
 
     botonCarrito.addEventListener("click",()=>{//Para cada vez que pinche cambie el boton selecionado y haga todo lo necesario
      u.cambiarBotonesMenu(botonCarrito);

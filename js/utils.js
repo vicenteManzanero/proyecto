@@ -137,6 +137,9 @@ export const mostrarPartedeMenu=(parte)=>{
     let divHistoria=d.getElementById("historia");
     let divContacto=d.getElementById("contacto");
     let divProducto=d.getElementById("productos");
+    let divProductosCategorias=d.getElementById("productosCategorias");
+    
+    divProductosCategorias.classList.add("hidden");
     divCarrito.classList.add("hidden");
     divHistoria.classList.add("hidden");
     divProducto.classList.add("hidden");

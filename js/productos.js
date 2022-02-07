@@ -17,10 +17,11 @@ function getParameterByName(name) {
 
 let categoriaActual = getParameterByName('cat');
 
-const obtenerArticulos = async (categoria) => {//cambiar categoria 
+export const obtenerArticulos = async (categoria) => {//cambiar categoria 
     try {
+        console.log(categoria);
         u.crearCabecera();
-        const consulta = await query(productos, where('categoria', '==', categoriaActual));
+        const consulta = await query(productos, where('categoria', '==',categoria ));//categoriaActual
         const documentos = await onSnapshot(consulta, (col) => {
             col.docs.map((documento, index) => {
                 u.mostrarProducto(documento.data(), index);

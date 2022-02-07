@@ -68,6 +68,7 @@
             <option value="superreducido"> superreducido 4%</option>
             <option value="general"> general 21%</option>
         </select>
+        <input type="hidden" id="idProductoModificado">
         <label for="imagen"> FOTO</label><input type="text" id="imagenM" placeholder="url de la imagen">
         <label for="alérgenos"> Alérgenos: </label>  
         <label>gluten</label>  <input type="checkbox" value="gluten">
@@ -80,6 +81,7 @@
         <input type="button" value="modificar" id="modificarM">
     </form>
     <form id="eliminarProducto" class="hidden">
+        <input type="hidden" id="idProductoEliminado">
         <label for="nombre"> nombre: </label><input type="text" id="nombreProductoE" readonly ><input type="button" value="Elimianr producto" id="eliminarProductoSelecionado">
         </form>
         <div id="cabeceraArticulos"></div>

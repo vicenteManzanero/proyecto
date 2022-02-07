@@ -4,7 +4,7 @@
 import { app,autentificacion } from "../../js/fireBase.js";
 import {
   getFirestore,
-  collection, getDocs, query,onSnapshot,
+  collection, getDocs, query,onSnapshot,setDoc,
   where, orderBy, addDoc, doc, getDoc, updateDoc, arrayUnion, arrayRemove, deleteDoc
 } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 import { ProductoJSON, mensajesUsuario } from "./plantillas.js";
@@ -24,6 +24,23 @@ window.onload = () => {
     mensajesUsuario(`Producto añadido con éxito `);
   };
 
+  const borrarDoc = async (id) => {
+    try{
+      await deleteDoc(doc(productos, id));
+    }catch(error){
+      console.log(error.message);
+    }
+
+  };
+  
+  const ActulizarProducto = async (id,JSON) => {//Funcion necesaria para actulizar el producto.
+    const productoId = await doc(productos, id);
+   
+     await setDoc(productoId, JSON  );
+   
+  };
+
+
   /*Botones */
   var logout= d.getElementById("logout");
   var anyadir = d.getElementById("anyadir");
@@ -35,10 +52,20 @@ window.onload = () => {
 var  divBuscar= d.getElementById("buscarproducto");
 var botonBuscar= d.getElementById("buscarP");
  var eliminarProducto= d.getElementById("eliminarProducto");
+var modificarM=d.getElementById("modificarM");
+ var eliminarProductoSelecionado=d.getElementById("eliminarProductoSelecionado");
+
+ var idProductoEliminado= d.getElementById("idProductoEliminado");
+ var idProductoModificado= d.getElementById("idProductoModificado");
+
+
+
+
 
   anyadir.addEventListener("click",()=>{//Para que nos muestre la información necesaria y oculte el resto.
     if(!anyadir.classList.contains("seleccionado")){
       anyadir.classList.toggle("seleccionado");
+      crear.classList.remove("hidden");
       formAnyadir.classList.remove("hidden");
       formModificarProducto.classList.add("hidden");
       modificar.classList.remove("seleccionado");
@@ -82,21 +109,18 @@ var botonBuscar= d.getElementById("buscarP");
     var foto = d.getElementById("imagen").value;
     var tipoVenta = d.querySelector("input[type='radio']:checked").value;
     var IVA = d.getElementById("IVA").value;
-    var chequeados = d.querySelectorAll("input[type='checkbox']:checked");
+    var chequeados = d.querySelectorAll("#anyadirProducto input[type='checkbox']:checked");
     var alergenos = [];
     chequeados.forEach((element) => { alergenos.push(element.value); });
     const productoNuevo = ProductoJSON(nombre, precio, categoria, tipoVenta, IVA, foto, alergenos);
-    console.log(productoNuevo);
-  //  guardarProducto(productos, productoNuevo);
+   // console.log(productoNuevo);
+   guardarProducto(productos, productoNuevo);
   }, false);
   botonBuscar.addEventListener("click",async()=>{
     let cabeceraArticulos=d.getElementById("cabeceraArticulos");
     cabeceraArticulos.innerHTML="";
     let articulos=d.getElementById("resultado");
     articulos.innerHTML="";
-   
-
-  
     try{
   crearCabecera();
     const consulta = await query(productos, where('nombre', '!=', ""));
@@ -105,10 +129,14 @@ var botonBuscar= d.getElementById("buscarP");
       col.docs.map((documento, index) => {
         if(documento.data().nombre.toUpperCase().includes(nombreBusqueda.toUpperCase())) {
           mostrarProducto(documento.data(), index);
-         
+       
             d.getElementById(`boton${index}`).addEventListener('click', (e) => {
+           
               if(modificar.classList.contains("seleccionado")){
               var chequeados = d.querySelectorAll("#modificarProducto input[type='checkbox']");
+          
+              idProductoModificado.value=documento.id;
+              console.log(idProductoModificado.value);
               var alergenos= documento.data().alérgenos;
               for(let i=0 ; i<chequeados.length;i++){
                 chequeados[i].checked=false;
@@ -142,6 +170,9 @@ var botonBuscar= d.getElementById("buscarP");
               
             }
             else if(eliminar.classList.contains("seleccionado")){//Añadimos al formulario el nombre a eliminar de la base de datos
+             
+              idProductoEliminado.value= documento.id;
+              console.log(idProductoEliminado.value);
               d.getElementById("nombreProductoE").value=documento.data().nombre;
             }
           }, false);
@@ -156,6 +187,39 @@ console.log(error.message);
 }
 
   },false);
+
+
+  eliminarProductoSelecionado.addEventListener("click",()=>{
+borrarDoc(idProductoEliminado.value);
+let cabeceraArticulos=d.getElementById("cabeceraArticulos");
+cabeceraArticulos.innerHTML="";
+let articulos=d.getElementById("resultado");
+articulos.innerHTML="";
+  },false);
+
+  modificarM.addEventListener("click",()=>{
+   
+   //Datos necesarios para modificar el producto completo.
+    console.log(idProductoModificado.value);
+    var nombre=(d.getElementById("nombreProductoM").value);
+    var precio=(d.getElementById("precioM").value);
+   var categoria= (d.getElementById("categoriaM").value);
+    var imagen=(d.getElementById("imagenM").value);
+    var tipo=( d.querySelector("input[name='radioM']:checked").value);
+    var IVA=(  d.getElementById("IVAM").value);
+    var chequeados =d.querySelectorAll("#modificarProducto input[type='checkbox']:checked");
+  var alergenos = [];
+    chequeados.forEach((element) => { alergenos.push(element.value); });
+   
+ var productoModificadoJSON=ProductoJSON(nombre,precio,categoria,tipo,IVA,imagen,alergenos);
+ //console.log(productoModificadoJSON);
+ ActulizarProducto(idProductoModificado.value,productoModificadoJSON);
+ let cabeceraArticulos=d.getElementById("cabeceraArticulos");
+ cabeceraArticulos.innerHTML="";
+ let articulos=d.getElementById("resultado");
+ articulos.innerHTML="";
+    
+      },false);
 
   const cerrarSesion = () => {//Para cerrar la sesión indicada.
     autentificacion

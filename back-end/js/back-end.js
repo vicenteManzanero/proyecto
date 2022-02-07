@@ -18,7 +18,7 @@ window.onload = () => {
 
   const guardarProducto = async (productos, productoCreado) => {
     const ProductoGuardado = await addDoc(productos, productoCreado);
-    console.log(`Producto guardado con el id ${ProductoGuardado.data().nombre}`);
+    console.log(`Producto guardado con el id ${ProductoGuardado.id}`);
     mensajesUsuario(`Producto añadido con éxito `);
   };
 

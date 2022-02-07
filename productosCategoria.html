@@ -27,15 +27,33 @@
             <li><a href="./contacto.html">Contacto</a></li>
             <li><a href="./carrito.html">Carrito</a></li>
             <li class="derecha"><a href="./login.html">Login</a></li>
-        </ul>
+       </ul>
     </nav>
-
+    <div id="cabeceraArticulos"></div>
     <section id="resultado">
 
-    </section>
-    <footer>
+        <div class="modal fade"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true"
+        role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" id="ventanaLogin">
+                <div class="modal-body" id="datosModalArticulo">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cerrarAnadir">CERRAR</button>
+                    <button type="button" class="btn btn-primary" id="anadirArticulo">AÑADIR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade show" id="backdrop2" style="display: none;"></div> 
 
-    </footer>
+
+
+
+
+    </section>
+    <footer></footer>
 </body>
 <script type="module" src="./js/productos.js"></script>
+
 </html>

@@ -4,12 +4,46 @@ import * as u from "./utils.js";
 import { crearNuevoUsuario,iniciarSesionComprobacion , cerrarSesion} from "./login.js";
 //Nivel 1 Eventos de la página
 window.onload = () => {
+/* Botones      */ 
     let d = document;
     let login= d.getElementById('login');//Botón login.
     let crearCuenta= d.getElementById('crearCuenta');//Botón crearCuenta.
     let registrar= d.getElementById("registrarCuenta");//Botón para registrarse.
     let enviarDatosLogin=d.getElementById("entrar");//Botón de inicio sesión.
     let logout=d.getElementById("logout");//Botón de inicio sesión.
+    let botonHistoria= d.getElementById("botonHistoria");//Botones de Menú.
+    let botonCarrito=d.getElementById("botonCarrito");
+    let botonContacto=d.getElementById("botonContacto");
+    let botonProducto=d.getElementById("botonProducto");
+
+    /*Final de los botones
+    Inicio de las funciones funciones
+    */
+   /*   DIV para ir mostrando y ocultando  */
+   let divCarrito= d.getElementById("carrito");
+   let divHistoria=d.getElementById("historia");
+   let divContacto=d.getElementById("contacto");
+   let divProducto=d.getElementById("productos");
+
+    botonCarrito.addEventListener("click",()=>{//Para cada vez que pinche cambie el boton selecionado y haga todo lo necesario
+     u.cambiarBotonesMenu(botonCarrito);
+   u.mostrarPartedeMenu(divCarrito);
+  
+    },false);
+    botonHistoria.addEventListener("click",()=>{//Para cada vez que pinche cambie el boton selecionado y haga todo lo necesario
+      u.cambiarBotonesMenu(botonHistoria);
+      u.mostrarPartedeMenu(divHistoria);
+     },false);
+     botonContacto.addEventListener("click",()=>{//Para cada vez que pinche cambie el boton selecionado y haga todo lo necesario
+      u.cambiarBotonesMenu(botonContacto);
+      u.mostrarPartedeMenu(divContacto);
+     },false);
+     botonProducto.addEventListener("click",()=>{//Para cada vez que pinche cambie el boton selecionado y haga todo lo necesario
+      u.cambiarBotonesMenu(botonProducto);
+      u.mostrarPartedeMenu(divProducto);
+     },false);
+
+
 
     u.mostrar();
     login.addEventListener('click',()=>{

@@ -11,14 +11,12 @@ import {
     where,orderBy,addDoc,doc,getDoc,updateDoc,arrayUnion,arrayRemove,deleteDoc 
   } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
   import * as u from "./utils.js";
-  const db= getFirestore(app);
-const usuarios= collection(db,"Usuarios");
+  const dbase= getFirestore(app);
+const usuarios= collection(dbase,"Usuarios");
 const guardarUsuario = async (nuevoUsuario) => {//Para añadir el nuevo usuario creado.
     const usuarioGuardado = await addDoc(usuarios, nuevoUsuario);
     console.log(`Lista guardado con el id ${usuarioGuardado.id}`);
      u.mensajesUsuario("Usuario registrado con éxito. Ahora ya puedes Iniciar sesión con tu cuenta")  ;
-   
-   
   };
 
 
@@ -27,7 +25,7 @@ export const crearNuevoUsuario =(correo,contraseña,telf)=>{//Crea un nuevo usua
     .then((credenciales) => {
       console.log(credenciales); // Credenciales del usuario creado.
       guardarUsuario(u.nuevoUsuarioJSON(correo,telf));//El usuario pasado a JSON.
-      cambiarseccionLogin(true);
+      cambiarseccionLogin(true);   
       u.closeModal('backdrop','exampleModal');//Para quitar el modal;
     })
     .catch((error) => {
@@ -44,7 +42,7 @@ export const iniciarSesionComprobacion = (correo, contra) => { //Para iniciar se
         console.log(actual);
         cambiarseccionLogin(true);
         u.closeModal('backdrop','exampleModal');//Para quitar el modal;
-        u.mensajesUsuario("Sesión Iniciada ya puedes hacer pedidos");    
+        u.mensajesUsuario("Sesión Iniciada ya puedes hacer pedidos");  
       })
       .catch((error) => {
         u.mensajesUsuario("Revisa el usuario y contraseña");    

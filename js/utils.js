@@ -125,8 +125,24 @@ export const mostrarProducto = (objeto, n) => {
 
 }
 
-
-
+export const cambiarBotonesMenu=(opcionMenu)=>{
+    botonCarrito.classList.remove("seleccionado");
+    botonHistoria.classList.remove("seleccionado");
+    botonContacto.classList.remove("seleccionado");
+    botonProducto.classList.remove("seleccionado");
+    opcionMenu.classList.add("seleccionado");
+}
+export const mostrarPartedeMenu=(parte)=>{
+    let divCarrito= d.getElementById("carrito");
+    let divHistoria=d.getElementById("historia");
+    let divContacto=d.getElementById("contacto");
+    let divProducto=d.getElementById("productos");
+    divCarrito.classList.add("hidden");
+    divHistoria.classList.add("hidden");
+    divProducto.classList.add("hidden");
+    divContacto.classList.add("hidden");
+    parte.classList.remove("hidden");
+}
 
 
 

@@ -17,7 +17,7 @@ function getParameterByName(name) {
 
 let categoriaActual = getParameterByName('cat');
 
-const obtenerArticulos = async () => {
+const obtenerArticulos = async (categoria) => {//cambiar categoria 
     try {
         u.crearCabecera();
         const consulta = await query(productos, where('categoria', '==', categoriaActual));

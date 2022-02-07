@@ -17,19 +17,15 @@ const guardarUsuario = async (nuevoUsuario) => {//Para añadir el nuevo usuario 
     const usuarioGuardado = await addDoc(usuarios, nuevoUsuario);
     console.log(`Lista guardado con el id ${usuarioGuardado.id}`);
      u.mensajesUsuario("Usuario registrado con éxito. Ahora ya puedes Iniciar sesión con tu cuenta")  ;
-   
-   
   };
-  const db = localStorage; 
+
 
 export const crearNuevoUsuario =(correo,contraseña,telf)=>{//Crea un nuevo usuario con los parámetros necesarios tanto en el auth como en nuestra base de datos
     createUserWithEmailAndPassword(autentificacion, correo, contraseña)
     .then((credenciales) => {
       console.log(credenciales); // Credenciales del usuario creado.
       guardarUsuario(u.nuevoUsuarioJSON(correo,telf));//El usuario pasado a JSON.
-      cambiarseccionLogin(true);
-      db.setItem("usuario", correo);    
-      db.setItem("usuario", contra);   
+      cambiarseccionLogin(true);   
       u.closeModal('backdrop','exampleModal');//Para quitar el modal;
     })
     .catch((error) => {
@@ -46,10 +42,7 @@ export const iniciarSesionComprobacion = (correo, contra) => { //Para iniciar se
         console.log(actual);
         cambiarseccionLogin(true);
         u.closeModal('backdrop','exampleModal');//Para quitar el modal;
-        u.mensajesUsuario("Sesión Iniciada ya puedes hacer pedidos");
-        db.setItem("usuario", correo);    
-        db.setItem("usuario", contra);    
-
+        u.mensajesUsuario("Sesión Iniciada ya puedes hacer pedidos");  
       })
       .catch((error) => {
         u.mensajesUsuario("Revisa el usuario y contraseña");    
@@ -79,7 +72,6 @@ export const iniciarSesionComprobacion = (correo, contra) => { //Para iniciar se
       .signOut()
       .then(() => {
        cambiarseccionLogin(false);
-       db.clear();
         u.mensajesUsuario("Sesión cerrada correctamente");  
         window.location.href(ruta);
       })

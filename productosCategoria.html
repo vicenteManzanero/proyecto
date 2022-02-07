@@ -21,12 +21,60 @@
         <div id="nombre">Horno Victoria</div>
     </header>
     <nav>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true"
+        role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" id="ventanaLogin">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">INTRODUZCA SU CORREO Y SU CONTRASEÑA</h5>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input type="text" name="user" placeholder="Correo" id="usuario"><br>
+                        <input type="password" name="pass" placeholder="Contraseña" id="clave"><br>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cerrar">CERRAR</button>
+                    <button type="button" class="btn btn-primary" id="entrar">ENVIAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade show" id="backdrop" style="display: none;"></div>
+
+    <div class="modal fade" id="exampleModal2" tabindex="-2" aria-labelledby="exampleModalLabel" aria-modal="true"
+        role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" id="ventanaLogin">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">REGISTRO</h5>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input type="text" name="user" placeholder="Correo" id="usuarioRegistro"><br>
+                        <input type="tel" name="user" placeholder="Número de teléfono" id="telefonoRegistro"><br>
+                        <input type="password" name="pass" placeholder="Contraseña" id="claveRegistro"><br>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cerrarCrear">CERRAR</button>
+                    <button type="button" class="btn btn-primary" id="registrarCuenta">CREAR CUENTA</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade show" id="backdrop" style="display: none;"></div>
         <ul>
             <li><a href="./index.html">Historia</a></li>
             <li><a href="./productos.html" class="seleccionado">Productos</a></li>
             <li><a href="./contacto.html">Contacto</a></li>
             <li><a href="./carrito.html">Carrito</a></li>
-            <li class="derecha"><a href="./login.html">Login</a></li>
+            <li class="derecha">
+                <a href="#" id="login" data-toggle="modal" data-target="#exampleModal">Login</a>
+                <a href="#" id="crearCuenta" data-toggle="modal" data-target="#exampleModal2">Crear Cuenta</a>
+                <a href="#" id="logout" class="hidden">Cerrar Sesión</a>
+            </li>
        </ul>
     </nav>
     <div id="cabeceraArticulos"></div>

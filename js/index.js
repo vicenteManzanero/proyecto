@@ -4,6 +4,11 @@ import * as u from "./utils.js";
 import { crearNuevoUsuario,iniciarSesionComprobacion , cerrarSesion} from "./login.js";
 //Nivel 1 Eventos de la página
 window.onload = () => {
+  const db = localStorage; //Para controlar las sesiones.
+  console.log(db.getItem("correo")!=null);
+  /* if(db.getItem("correo")) {
+    iniciarSesionComprobacion(db.getItem("correo"),d.getElementById("clave").value);
+  } */
     let d = document;
     let login= d.getElementById('login');//Botón login.
     let crearCuenta= d.getElementById('crearCuenta');//Botón crearCuenta.

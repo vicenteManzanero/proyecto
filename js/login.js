@@ -54,15 +54,18 @@ export const iniciarSesionComprobacion = (correo, contra) => { //Para iniciar se
     var ini= document.getElementById("login");
     var reg= document.getElementById("crearCuenta");
     var cerr= document.getElementById("logout");
+    let botonCarrito=document.getElementById("botonCarrito");
 
     if(tipo){
       ini.classList.add("hidden");
       reg.classList.add("hidden");
+      botonCarrito.classList.remove("hidden");
       cerr.classList.remove("hidden");
     }else{
       ini.classList.remove("hidden");
       reg.classList.remove("hidden");
       cerr.classList.add("hidden");
+      botonCarrito.classList.add("hidden");
     }
   }
 

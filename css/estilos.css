@@ -10,6 +10,10 @@ body {
 #productosCategorias,#productos {/* Para que no intefiera el borde con nuestras funciones*/
   border: none;
 }
+#nombre:hover,#logo:hover{
+  cursor: pointer;
+
+}
 .hidden {
   display: none !important;
 }

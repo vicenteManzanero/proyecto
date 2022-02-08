@@ -5,7 +5,7 @@ import { crearNuevoUsuario,iniciarSesionComprobacion , cerrarSesion} from "./log
 import { obtenerArticulos } from "./productos.js";
 //Nivel 1 Eventos de la página
 window.onload = () => {
-/* Botones      */ 
+/* Botones de menú, logo y nombre de empresa      */ 
     let d = document;
     let login= d.getElementById('login');//Botón login.
     let crearCuenta= d.getElementById('crearCuenta');//Botón crearCuenta.
@@ -16,6 +16,8 @@ window.onload = () => {
     let botonCarrito=d.getElementById("botonCarrito");
     let botonContacto=d.getElementById("botonContacto");
     let botonProducto=d.getElementById("botonProducto");
+    let logo=d.getElementById("logo");
+    let nombreEmpresa=d.getElementById("nombre");
 
 
     /*Final de los botones
@@ -73,6 +75,15 @@ window.onload = () => {
       u.cambiarBotonesMenu(botonHistoria);
       u.mostrarPartedeMenu(divHistoria);
      },false);
+     logo.addEventListener("click",()=>{//Para cada vez que pinche cambie el boton selecionado y haga todo lo necesario
+      u.cambiarBotonesMenu(botonHistoria);
+      u.mostrarPartedeMenu(divHistoria);
+     },false);
+     nombreEmpresa.addEventListener("click",()=>{//Para cada vez que pinche cambie el boton selecionado y haga todo lo necesario
+      u.cambiarBotonesMenu(botonHistoria);
+      u.mostrarPartedeMenu(divHistoria);
+     },false);
+     
      botonContacto.addEventListener("click",()=>{//Para cada vez que pinche cambie el boton selecionado y haga todo lo necesario
       u.cambiarBotonesMenu(botonContacto);
       u.mostrarPartedeMenu(divContacto);

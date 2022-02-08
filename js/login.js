@@ -39,7 +39,7 @@ export const iniciarSesionComprobacion = (correo, contra) => { //Para iniciar se
         if(correo=="admin@admin.es")window.location.href="../../back-end/back-end.html";
         console.log("Sesión Iniciada");
         const actual = credenciales.user;
-        console.log(actual);
+        /* console.log(actual); */
         cambiarseccionLogin(true);
         u.closeModal('backdrop','exampleModal');//Para quitar el modal;
         u.mensajesUsuario("Sesión Iniciada ya puedes hacer pedidos");  

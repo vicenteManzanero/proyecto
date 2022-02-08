@@ -69,6 +69,8 @@ window.onload = () => {
   botonCarrito.addEventListener("click", () => {//Para cada vez que pinche cambie el boton selecionado y haga todo lo necesario
     u.cambiarBotonesMenu(botonCarrito);
     u.mostrarPartedeMenu(divCarrito);
+    u.crearCabeceraCarrito(divCarrito);
+    u.mostrarProductoCarrito(divCarrito);
 
   }, false);
   botonHistoria.addEventListener("click", () => {//Para cada vez que pinche cambie el boton selecionado y haga todo lo necesario

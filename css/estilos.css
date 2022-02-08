@@ -125,7 +125,6 @@ input[type="text"] {
 
 section {
   border: 5px solid burlywood;
-  height: 70vh;
   margin: auto;
   margin-bottom: 15px;
   border-radius: 15px;
@@ -136,8 +135,8 @@ section {
   display: flex;
 }
 .carrusel {
-  width: 700px;
-  height: 600px;
+  width: 500px;
+  height: 400px;
   margin: 50px auto 25px;
   border-radius: 15px;
   outline: 5px solid burlywood;
@@ -179,6 +178,12 @@ footer h2{
 }
 div .contacto p{
   margin-top: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+p.tiempo{
+  margin-top: 1em;
 }
 
 

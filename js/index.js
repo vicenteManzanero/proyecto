@@ -1,10 +1,12 @@
 'use strict';
 import * as u from "./utils.js";
+import * as t from "./eltiempo.js";
 
 import { crearNuevoUsuario, iniciarSesionComprobacion, cerrarSesion } from "./login.js";
 import { obtenerArticulos } from "./productos.js";
 //Nivel 1 Eventos de la página
 window.onload = () => {
+  t.mostrarTiempo();
   /* Botones de menú, logo y nombre de empresa      */
   let d = document;
   let login = d.getElementById('login');//Botón login.

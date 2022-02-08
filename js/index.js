@@ -40,8 +40,29 @@ window.onload = () => {
    hojaldre.addEventListener("click",()=>{
     u.mostrarPartedeMenu(divProductosCategorias);
     obtenerArticulos("hojaldre");
-
    },false);
+   bobas.addEventListener("click",()=>{
+    u.mostrarPartedeMenu(divProductosCategorias);
+    obtenerArticulos("bobas");
+   },false);
+   refrescos.addEventListener("click",()=>{
+    u.mostrarPartedeMenu(divProductosCategorias);
+    obtenerArticulos("refrescos");
+   },false);
+   pan.addEventListener("click",()=>{
+    u.mostrarPartedeMenu(divProductosCategorias);
+    obtenerArticulos("pan");
+   },false);
+   rollos.addEventListener("click",()=>{
+    u.mostrarPartedeMenu(divProductosCategorias);
+    obtenerArticulos("rollos");
+   },false);
+   tortas.addEventListener("click",()=>{
+    u.mostrarPartedeMenu(divProductosCategorias);
+    obtenerArticulos("tortas");
+   },false);
+   
+   
 
     botonCarrito.addEventListener("click",()=>{//Para cada vez que pinche cambie el boton selecionado y haga todo lo necesario
      u.cambiarBotonesMenu(botonCarrito);

@@ -45,7 +45,7 @@ export const obtenerArticulos = async (categoria) => {//cambiar categoria
         console.log(error.message);
     }
 };
-obtenerArticulos();
+//obtenerArticulos();
 
 
 //funcion para mostrar los articulos ampiados

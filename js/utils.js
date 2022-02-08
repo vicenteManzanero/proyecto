@@ -82,10 +82,10 @@ export const mostrarProducto = (objeto, n) => {
     div.setAttribute('class', 'row ');
     div.setAttribute('data-toggle', 'modal');
     div.setAttribute('data-target', `modalArticulos${n}`);
-
+    //
     div.setAttribute('id', `fila${n}`);
     div.innerHTML = `
-    <div class= "col d-flex align-items-center justify-content-center">${objeto.imagen}</div>
+    <div class= "col d-flex align-items-center justify-content-center"><img src="${objeto.imagen}" alt="foto" width="80" height="50"></div>
     <div class= "col d-flex align-items-center justify-content-center">${objeto.nombre}</div>
     <div class= "col d-flex align-items-center justify-content-center" id="alergenos${n}"></div>
     <div class= "col d-flex align-items-center justify-content-center">${objeto.precio} €</div>
@@ -103,7 +103,7 @@ export const mostrarProducto = (objeto, n) => {
         aler.innerHTML += `${objeto.alérgenos[j]}<br>`;
     }
     d.getElementById(`alergenos${n}`).appendChild(aler);
-    if (objeto.venta === 'peso') {
+    if (objeto.venta === 'unidad') {
         let divTipo = d.createElement('div');
         divTipo.setAttribute('class', 'col d-flex align-items-center justify-content-center');
         divTipo.innerHTML = `<input type="text" class="form-control" placeholder="Cantidad" aria-describedby="basic-addon1">`;
@@ -150,9 +150,11 @@ export const mostrarPartedeMenu=(parte)=>{
 
 
 
-export const crearCabecera = () => {
+export const crearCabecera = () => {//Crea la cabecera para mostrar los productos.
     let div = d.createElement('div');
     div.setAttribute('class', 'row');
+   let cabeceraArticulo= d.getElementById('cabeceraArticulos');//Para que al llamar a la función cada vez no se creen más de una vez la  cabecera.
+   cabeceraArticulo.innerHTML="";
     div.innerHTML = `
     <div class= "col d-flex justify-content-center cabeceraArticulo">FOTO</div>
     <div class= "col d-flex justify-content-center cabeceraArticulo">NOMBRE</div>
@@ -160,5 +162,5 @@ export const crearCabecera = () => {
     <div class= "col d-flex justify-content-center cabeceraArticulo">PRECIO</div>
     <div class= "col d-flex justify-content-center cabeceraArticulo">CANTIDAD</div>
     <div class= "col d-flex justify-content-center cabeceraArticulo">AÑADIR</div>`;
-    d.getElementById('cabeceraArticulos').appendChild(div);
+    cabeceraArticulo.appendChild(div);
 }

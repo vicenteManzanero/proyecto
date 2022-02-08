@@ -7,6 +7,9 @@
 body {
   padding: 15px;
 }
+#productosCategorias,#productos {/* Para que no intefiera el borde con nuestras funciones*/
+  border: none;
+}
 .hidden {
   display: none !important;
 }

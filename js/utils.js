@@ -77,12 +77,12 @@ window.onclick = function (event) {
 }
 
 export const mostrarProducto = (objeto, n) => {
+
     let div = d.createElement('div');
     div.style.cursor = 'pointer';
     div.setAttribute('class', 'row ');
     div.setAttribute('data-toggle', 'modal');
     div.setAttribute('data-target', `modalArticulos${n}`);
-    //
     div.setAttribute('id', `fila${n}`);
     div.innerHTML = `
     <div class= "col d-flex align-items-center justify-content-center"><img src="${objeto.imagen}" alt="foto" width="80" height="50"></div>
@@ -125,20 +125,20 @@ export const mostrarProducto = (objeto, n) => {
 
 }
 
-export const cambiarBotonesMenu=(opcionMenu)=>{
+export const cambiarBotonesMenu = (opcionMenu) => {
     botonCarrito.classList.remove("seleccionado");
     botonHistoria.classList.remove("seleccionado");
     botonContacto.classList.remove("seleccionado");
     botonProducto.classList.remove("seleccionado");
     opcionMenu.classList.add("seleccionado");
 }
-export const mostrarPartedeMenu=(parte)=>{
-    let divCarrito= d.getElementById("carrito");
-    let divHistoria=d.getElementById("historia");
-    let divContacto=d.getElementById("contacto");
-    let divProducto=d.getElementById("productos");
-    let divProductosCategorias=d.getElementById("productosCategorias");
-    
+export const mostrarPartedeMenu = (parte) => {
+    let divCarrito = d.getElementById("carrito");
+    let divHistoria = d.getElementById("historia");
+    let divContacto = d.getElementById("contacto");
+    let divProducto = d.getElementById("productos");
+    let divProductosCategorias = d.getElementById("productosCategorias");
+
     divProductosCategorias.classList.add("hidden");
     divCarrito.classList.add("hidden");
     divHistoria.classList.add("hidden");
@@ -153,8 +153,8 @@ export const mostrarPartedeMenu=(parte)=>{
 export const crearCabecera = () => {//Crea la cabecera para mostrar los productos.
     let div = d.createElement('div');
     div.setAttribute('class', 'row');
-   let cabeceraArticulo= d.getElementById('cabeceraArticulos');//Para que al llamar a la función cada vez no se creen más de una vez la  cabecera.
-   cabeceraArticulo.innerHTML="";
+    let cabeceraArticulo = d.getElementById('cabeceraArticulos');//Para que al llamar a la función cada vez no se creen más de una vez la  cabecera.
+    cabeceraArticulo.innerHTML = "";
     div.innerHTML = `
     <div class= "col d-flex justify-content-center cabeceraArticulo">FOTO</div>
     <div class= "col d-flex justify-content-center cabeceraArticulo">NOMBRE</div>

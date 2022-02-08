@@ -6,9 +6,10 @@ const db = getFirestore(app);
 const productos = collection(db, "Productos");
 let d = document;
 
-export const obtenerArticulos = async (categoria,donde) => {//cambiar categoria 
+export const obtenerArticulos = async (categoria) => {//cambiar categoria 
     try {
         u.crearCabecera();
+        
         d.getElementById('resultado').innerHTML = ``;
         const consulta = await query(productos, where('categoria', '==', categoria));//categoriaActual
         const documentos = await onSnapshot(consulta, (col) => {
@@ -16,18 +17,23 @@ export const obtenerArticulos = async (categoria,donde) => {//cambiar categoria
                 u.mostrarProducto(documento.data(), index);
                 d.getElementById(`boton${index}`).addEventListener('click', (e) => {
                     if (e.target.parentNode.parentNode.children[4].children[0].childNodes[0].value == "") {
-                        console.log('campo vacio');
+                        console.log('campo vacio');//Informar de que tiene que introducir una cantidad
                     } else {
-                        let pedido = {};
-                        pedido.nombre = e.target.parentNode.parentNode.children[1].innerHTML; //Nombre producto
-                        pedido.precio = parseFloat(e.target.parentNode.parentNode.children[3].innerHTML); //Precio producto
-
+                                let pedido = {};
+                                pedido.nombre = e.target.parentNode.parentNode.children[1].innerHTML; //Nombre producto
+                                pedido.precio = parseFloat(e.target.parentNode.parentNode.children[3].innerHTML); //Precio producto
                         if (documento.data().venta === 'unidad') {
-                            pedido.cantidad = parseInt(e.target.parentNode.parentNode.children[4].children[0].childNodes[0].value); //Cantidad en unidades
+                                pedido.tipo = 'Unidad';
+                                pedido.cantidad = parseInt(e.target.parentNode.parentNode.children[4].children[0].childNodes[0].value); //Cantidad en unidades
+                                pedido.total = pedido.cantidad * pedido.precio;
                         } else {
-                            pedido.cantidad = parseFloat(e.target.parentNode.parentNode.children[4].children[0].childNodes[1].value);//Cantidad en gramos
+                            pedido.tipo = 'Kg';
+                                pedido.cantidad = parseFloat(e.target.parentNode.parentNode.children[4].children[0].childNodes[1].value);//Cantidad en gramos
+                                pedido.total = pedido.cantidad * pedido.precio;
                         }
-                        anadirArticulo(donde,pedido);
+                        //Mostrar mensaje de producto añadido.
+                        
+                        u.enviarProductoCarrito(pedido);
                     }
 
                 }, false);
@@ -39,11 +45,4 @@ export const obtenerArticulos = async (categoria,donde) => {//cambiar categoria
     }
 };
 
-export const anadirArticulo = (donde,pedido) => {
-    
-    pedido.total = pedido.precio * pedido.cantidad;
-    u.mostrarProductoCarrito(donde,pedido);
-    
-
-}
 

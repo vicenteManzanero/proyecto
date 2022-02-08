@@ -167,32 +167,30 @@ export const crearCabecera = () => {//Crea la cabecera para mostrar los producto
     cabeceraArticulo.appendChild(div);
 }
 
-
-
 //Carrito
 export const crearCabeceraCarrito = (donde) => {//Crea la cabecera para mostrar los productos.
     let div = d.createElement('div');
     div.setAttribute('class', 'row');
-    let cabeceraArticulo = d.getElementById(donde);//Para que al llamar a la función cada vez no se creen más de una vez la  cabecera.
-    cabeceraArticulo.innerHTML = "";
+     d.getElementById(donde).innerHTML = '';//Para que al llamar a la función cada vez no se creen más de una vez la  cabecera. */
     div.innerHTML = `
-    <div class= "col d-flex justify-content-center cabeceraArticulo">FOTO</div>
-    <div class= "col d-flex justify-content-center cabeceraArticulo">NOMBRE</div>
+    <div class= "col d-flex justify-content-center cabeceraArticulo">PRODUCTO</div>
     <div class= "col d-flex justify-content-center cabeceraArticulo">PRECIO</div>
     <div class= "col d-flex justify-content-center cabeceraArticulo">CANTIDAD</div>
     <div class= "col d-flex justify-content-center cabeceraArticulo">TOTAL</div>`;
-    cabeceraArticulo.appendChild(div);
+    d.getElementById(donde).appendChild(div);
 }
-export const mostrarProductoCarrito = (objeto,donde)=>{
+export const enviarProductoCarrito = (objeto)=>{
     let div = d.createElement('div');
     div.setAttribute('class', 'row ');
     div.innerHTML = `
-    <div class= "col d-flex align-items-center justify-content-center"><img src="${objeto.imagen}" alt="foto" width="80" height="50"></div>
     <div class= "col d-flex align-items-center justify-content-center">${objeto.nombre}</div>
     <div class= "col d-flex align-items-center justify-content-center">${objeto.precio} €</div>
-    <div class= "col d-flex align-items-center justify-content-center">${objeto.cantidad} €</div>
+    <div class= "col d-flex align-items-center justify-content-center">${objeto.cantidad} ${objeto.tipo}</div>
     <div class= "col d-flex align-items-center justify-content-center">${objeto.total} €</div>
     `;
-    d.getElementById(donde).appendChild(div);
+    d.getElementById('resultadoCarrito').appendChild(div);
     
+}
+export const carritoVacio = ()=>{
+    d.getElementById('carrito').innerHTML = 'El carrito está vacio';
 }

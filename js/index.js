@@ -7,6 +7,7 @@ import { obtenerArticulos } from "./productos.js";
 //Nivel 1 Eventos de la página
 window.onload = () => {
   t.mostrarTiempo();
+  u.mostrarHistoria();
   /* Botones de menú, logo y nombre de empresa      */
   let d = document;
   let login = d.getElementById('login');//Botón login.
@@ -79,6 +80,7 @@ window.onload = () => {
   botonHistoria.addEventListener("click", () => {//Para cada vez que pinche cambie el boton selecionado y haga todo lo necesario
     u.cambiarBotonesMenu(botonHistoria);
     u.mostrarPartedeMenu(divHistoria);
+    
   }, false);
   logo.addEventListener("click", () => {//Para cada vez que pinche cambie el boton selecionado y haga todo lo necesario
     u.cambiarBotonesMenu(botonHistoria);
@@ -100,7 +102,6 @@ window.onload = () => {
 
 
 
- // u.mostrar();
   login.addEventListener('click', () => {
     u.openModal('backdrop', 'exampleModal');
     enviarDatosLogin.addEventListener("click", () => {

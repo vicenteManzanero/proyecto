@@ -144,17 +144,27 @@ section {
 }
 
 /*Apartado del carrusel*/
-#carrusel {
-  display: flex;
-}
 .carrusel {
-  width: 500px;
-  height: 400px;
-  margin: 50px auto 25px;
+  float: right;
+  width: 400px;
+  height: 300px;
   border-radius: 15px;
   outline: 5px solid burlywood;
   outline-offset: 10px;
+  margin-left: 50px;
+  margin-bottom: 25px;
 }
+#historia{
+  padding:15px;
+  height: auto;
+  min-height: 500px;
+  min-width: 500px;
+  text-align: justify;
+}
+#historiaTitulo{
+  margin: 45px;
+}
+
 
 #resultado {
   overflow-x: hidden;

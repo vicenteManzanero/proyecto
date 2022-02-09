@@ -1,13 +1,16 @@
 'use strict';
 let d = document;
-export const mostrar = () => {
+export const mostrarHistoria = () => {
     let imagenes = ["../img/carrusel_historia/1.jpg", "../img/carrusel_historia/2.jpg", "../img/carrusel_historia/3.jpg", "../img/carrusel_historia/4.jpg", "../img/carrusel_historia/5.jpg", "../img/carrusel_historia/6.jpg"];
     let i = 0;
+    let texto ='Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, consequatur enim omnis totam vel veniam est ea voluptatum nulla beatae dolor repellat voluptatibus iusto assumenda deserunt velit doloribus facilis maiores. Cum repudiandae adipisci dolorum ab, ratione earum natus accusamus sunt enim alias non pariatur vitae voluptas culpa molestias dignissimos reiciendis officiis consectetur ducimus expedita fugit. Culpa quis laborum quidem etLorem ipsum dolor sit amet consectetur   adipisicing elit. Repellendus, consequatur enim omnis totam vel veniam est ea voluptatum nulla beatae dolor repellat voluptatibus iusto assumenda deserunt velit doloribus facilis maiores. Cum repudiandae adipisci dolorum ab, ratione earum natus accusamus sunt enim alias non pariatur vitae voluptas culpa molestias dignissimos reiciendis officiis consectetur ducimus expedita fugit. Culpa quis laborum quidem etLorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, consequatur enim omnis totam vel veniam est ea voluptatum nulla beatae dolor repellat voluptatibus iusto assumenda deserunt velit doloribus facilis maiores. Cum repudiandae adipisci dolorum ab, ratione earum natus accusamus sunt enim alias non pariatur vitae voluptas culpa molestias dignissimos reiciendis officiis consectetur ducimus expedita fugit. Culpa quis laborum quidem etLorem ipsum dolor sit amet ';
     setInterval(() => {
         let img = d.createElement("img");
         img.setAttribute("src", imagenes[i]);
         img.setAttribute("class", "carrusel");
         d.getElementById('carrusel').innerHTML = img.outerHTML;
+        d.getElementById('carrusel').innerHTML += texto;
+        
         i++;
         if (i >= imagenes.length) {
             i = 0;
@@ -44,8 +47,6 @@ export function mensajesUsuario(texto) {//Para comunicar al usuario todo lo que 
         div.classList.add("hidden");
     }, 3000);
 }
-
-
 export const openModal = (id1, id2) => {
     d.getElementById(`${id1}`).style.display = "block"
     d.getElementById(`${id2}`).style.display = "block"
@@ -60,7 +61,6 @@ export const openModalArticulo = (id1, id2, datos) => {
     ${datos.nombre}<br>
     ${datos.precio}<br>
     `;
-
 }
 export const closeModal = (id1, id2) => {
     d.getElementById(`${id1}`).style.display = "none"
@@ -75,7 +75,6 @@ window.onclick = function (event) {
         closeModal('backdrop', 'exampleModal');
     }
 }
-
 export const mostrarProducto = (objeto, n) => {
 
     let div = d.createElement('div');
@@ -125,8 +124,6 @@ export const mostrarProducto = (objeto, n) => {
 
 }
 
-
-
 export const cambiarBotonesMenu = (opcionMenu) => {
     botonCarrito.classList.remove("seleccionado");
     botonHistoria.classList.remove("seleccionado");
@@ -148,10 +145,6 @@ export const mostrarPartedeMenu = (parte) => {
     divContacto.classList.add("hidden");
     parte.classList.remove("hidden");
 }
-
-
-
-
 export const crearCabecera = () => {//Crea la cabecera para mostrar los productos.
     let div = d.createElement('div');
     div.setAttribute('class', 'row');
@@ -166,21 +159,18 @@ export const crearCabecera = () => {//Crea la cabecera para mostrar los producto
     <div class= "col d-flex justify-content-center cabeceraArticulo">AÑADIR</div>`;
     cabeceraArticulo.appendChild(div);
 }
-
 //Carrito
 export const crearCabeceraCarrito = (donde) => {//Crea la cabecera para mostrar los productos.
     let div = d.createElement('div');
     div.setAttribute('class', 'row');
    let cabeceraCarrito= d.getElementById(donde);
-    
     cabeceraCarrito.innerHTML = '';//Para que al llamar a la función cada vez no se creen más de una vez la  cabecera. */
     div.innerHTML = `
     <div class= "col d-flex justify-content-center cabeceraArticulo">PRODUCTO</div>
     <div class= "col d-flex justify-content-center cabeceraArticulo">PRECIO</div>
     <div class= "col d-flex justify-content-center cabeceraArticulo">CANTIDAD</div>
     <div class= "col d-flex justify-content-center cabeceraArticulo">TOTAL</div>`;
-    cabeceraCarrito.appendChild(div);
-    
+    cabeceraCarrito.appendChild(div); 
 }
 export const enviarProductoCarrito = (objeto)=>{
     d.getElementById('resultadoCarrito').innerHTML="";//Para cada vez que añadimos o borramos un producto del carrito se vuelva a pintar completamente.
@@ -192,7 +182,6 @@ export const enviarProductoCarrito = (objeto)=>{
     <div class= "col d-flex align-items-center justify-content-center">${objeto.cantidad} ${objeto.tipo}</div>
     <div class= "col d-flex align-items-center justify-content-center">${objeto.total} €</div>
     `;
-    
     d.getElementById('resultadoCarrito').appendChild(div);
     
 }

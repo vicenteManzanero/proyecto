@@ -96,7 +96,10 @@ export const mostrarProducto = (objeto, n) => {
     <button type="button" class="btn btn-success" id="boton${n}">Añadir</button>
     </div>
     `;
+    
     d.getElementById('resultado').appendChild(div);
+  
+
     let aler = d.createElement('div');
     aler.setAttribute('class', 'col d-flex align-items-center justify-content-center');
     for (let j = 0; j < objeto.alérgenos.length; j++) {
@@ -106,13 +109,13 @@ export const mostrarProducto = (objeto, n) => {
     if (objeto.venta === 'unidad') {
         let divTipo = d.createElement('div');
         divTipo.setAttribute('class', 'col d-flex align-items-center justify-content-center');
-        divTipo.innerHTML = `<input type="text" class="form-control" placeholder="Cantidad" aria-describedby="basic-addon1">`;
+        divTipo.innerHTML = `<input id="tipos${n}"  type="text" class="form-control" placeholder="Cantidad" aria-describedby="basic-addon1">`;
         d.getElementById(`tipo${n}`).appendChild(divTipo);
     } else {
         let divTipo = d.createElement('div');
         divTipo.setAttribute('class', 'col d-flex align-items-center justify-content-center');
         divTipo.innerHTML = `
-        <select class="form-select" aria-label="Default select example">
+        <select id="tipos${n}" class="form-select" aria-label="Default select example">
             <option selected value="">SELECCIONE</option>
             <option value="0.250">250 g</option>
             <option value="0.500">500 g</option>
@@ -122,8 +125,14 @@ export const mostrarProducto = (objeto, n) => {
         `;
         d.getElementById(`tipo${n}`).appendChild(divTipo);
     }
-
-}
+    let logout= d.getElementById('logout');
+    let boton=d.getElementById(`boton${n}`);
+    let tipos=d.getElementById(`tipos${n}`);
+    if(logout.classList.contains("hidden")){
+        boton.setAttribute("disabled","");
+        tipos.setAttribute("disabled","");
+    }
+    } 
 
 
 
@@ -182,19 +191,26 @@ export const crearCabeceraCarrito = (donde) => {//Crea la cabecera para mostrar 
     cabeceraCarrito.appendChild(div);
     
 }
-export const enviarProductoCarrito = (objeto)=>{
+export const enviarProductoCarrito = (carrito)=>{
     d.getElementById('resultadoCarrito').innerHTML="";//Para cada vez que añadimos o borramos un producto del carrito se vuelva a pintar completamente.
-    let div = d.createElement('div');
-    div.setAttribute('class', 'row ');
+   let totalCompra=0;
+  
+    carrito.map((objeto)=>{
+        let div = d.createElement('div');
+        div.setAttribute('class', 'row ');
     div.innerHTML = `
     <div class= "col d-flex align-items-center justify-content-center">${objeto.nombre}</div>
     <div class= "col d-flex align-items-center justify-content-center">${objeto.precio} €</div>
     <div class= "col d-flex align-items-center justify-content-center">${objeto.cantidad} ${objeto.tipo}</div>
-    <div class= "col d-flex align-items-center justify-content-center">${objeto.total} €</div>
-    `;
-    
+    <div class= "col d-flex align-items-center justify-content-center">${Math.round((objeto.total + Number.EPSILON) * 100) / 100} €</div>
+    `;//El math.Round del final es para que no diera a veces resultados  con muchos decimales;
+    totalCompra+=Math.round((objeto.total + Number.EPSILON) * 100) / 100;
     d.getElementById('resultadoCarrito').appendChild(div);
-    
+});
+let divTotal = d.createElement('div');
+divTotal.setAttribute('class', 'row ');
+divTotal.innerHTML = `  <div class= "col d-flex align-items-center justify-content-center">El precio total del pedido es de ${totalCompra}€                   <button type="button" class="btn btn-success" id="confirmarPedido">confirmar el Pedido</button></div>`;
+d.getElementById('resultadoCarrito').appendChild(divTotal);
 }
 export const carritoVacio = ()=>{
     d.getElementById('carrito').innerHTML = 'El carrito está vacio';

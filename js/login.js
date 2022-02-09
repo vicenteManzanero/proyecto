@@ -20,20 +20,21 @@ const guardarUsuario = async (nuevoUsuario) => {//Para añadir el nuevo usuario 
   };
 
 
-export const crearNuevoUsuario =(correo,contraseña,telf)=>{//Crea un nuevo usuario con los parámetros necesarios tanto en el auth como en nuestra base de datos
+export const crearNuevoUsuario =(correo,contraseña,telf,)=>{//Crea un nuevo usuario con los parámetros necesarios tanto en el auth como en nuestra base de datos
     createUserWithEmailAndPassword(autentificacion, correo, contraseña)
     .then((credenciales) => {
       console.log(credenciales); // Credenciales del usuario creado.
       guardarUsuario(u.nuevoUsuarioJSON(correo,telf));//El usuario pasado a JSON.
       cambiarseccionLogin(true);   
       u.closeModal('backdrop','exampleModal');//Para quitar el modal;
+      
     })
     .catch((error) => {
       console.log(error);
       u.mensajesUsuario("Este usuario ya esta registrado");
     });
 };
-export const iniciarSesionComprobacion = (correo, contra) => { //Para iniciar sesión
+export const iniciarSesionComprobacion = (correo, contra,) => { //Para iniciar sesión
     signInWithEmailAndPassword(autentificacion, correo, contra)
       .then((credenciales) => {
         if(correo=="admin@admin.es")window.location.href="../../back-end/back-end.html";
@@ -43,6 +44,7 @@ export const iniciarSesionComprobacion = (correo, contra) => { //Para iniciar se
         cambiarseccionLogin(true);
         u.closeModal('backdrop','exampleModal');//Para quitar el modal;
         u.mensajesUsuario("Sesión Iniciada ya puedes hacer pedidos");  
+        
       })
       .catch((error) => {
         u.mensajesUsuario("Revisa el usuario y contraseña");    
@@ -70,13 +72,13 @@ export const iniciarSesionComprobacion = (correo, contra) => { //Para iniciar se
   }
 
 
-  export const cerrarSesion = (ruta="./index.html") => {//Para cerrar la sesión indicada.
+  export const cerrarSesion = () => {//Para cerrar la sesión indicada.
     autentificacion
       .signOut()
       .then(() => {
        cambiarseccionLogin(false);
         u.mensajesUsuario("Sesión cerrada correctamente");  
-        window.location.href(ruta);
+       
       })
       .catch((error) => {
         console.log(error);

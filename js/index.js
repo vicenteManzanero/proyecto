@@ -20,7 +20,7 @@ window.onload = () => {
   let botonProducto = d.getElementById("botonProducto");
   let logo = d.getElementById("logo");
   let nombreEmpresa = d.getElementById("nombre");
-  var productosEnELCarrito=[];
+  var productosEnELCarrito=[];//Para controlar el carrito que se pierde solo se guardará en la base de datos en caso de completar el pedido.
 
 
   /*Final de los botones
@@ -106,6 +106,8 @@ window.onload = () => {
     enviarDatosLogin.addEventListener("click", () => {
       if (u.comprobarDatos(d.getElementById("usuario").value, d.getElementById("clave").value)) {//Comprobamos que los datos de correo , password, telf sean correctos.
         iniciarSesionComprobacion(d.getElementById("usuario").value, d.getElementById("clave").value);
+        u.cambiarBotonesMenu(botonHistoria);
+        u.mostrarPartedeMenu(divHistoria);
       } else {
         u.mensajesUsuario("Introduce todos los campos correctamente");
       }
@@ -122,6 +124,8 @@ window.onload = () => {
     registrar.addEventListener("click", () => {
       if (u.comprobarDatos(d.getElementById("usuarioRegistro").value, d.getElementById("claveRegistro").value, d.getElementById("telefonoRegistro").value)) {//Comprobamos que los datos de correo , password, telf sean correctos.
         crearNuevoUsuario(d.getElementById("usuarioRegistro").value, d.getElementById("claveRegistro").value, d.getElementById("telefonoRegistro").value);//Si los datos están bien creamos usuario
+        u.cambiarBotonesMenu(botonHistoria);
+        u.mostrarPartedeMenu(divHistoria);
       } else {
         u.mensajesUsuario("Introduce todos los campos correctamente");
       }

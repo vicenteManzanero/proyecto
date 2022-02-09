@@ -20,6 +20,7 @@ window.onload = () => {
   let botonProducto = d.getElementById("botonProducto");
   let logo = d.getElementById("logo");
   let nombreEmpresa = d.getElementById("nombre");
+  var productosEnELCarrito=[];
 
 
   /*Final de los botones
@@ -43,27 +44,27 @@ window.onload = () => {
 
   hojaldre.addEventListener("click", () => {
     u.mostrarPartedeMenu(divProductosCategorias);
-    obtenerArticulos("hojaldre");
+    obtenerArticulos("hojaldre", productosEnELCarrito);
   }, false);
   bobas.addEventListener("click", () => {
     u.mostrarPartedeMenu(divProductosCategorias);
-    obtenerArticulos("bobas");
+    obtenerArticulos("bobas", productosEnELCarrito);
   }, false);
   refrescos.addEventListener("click", () => {
     u.mostrarPartedeMenu(divProductosCategorias);
-    obtenerArticulos("refrescos");
+    obtenerArticulos("refrescos", productosEnELCarrito);
   }, false);
   pan.addEventListener("click", () => {
     u.mostrarPartedeMenu(divProductosCategorias);
-    obtenerArticulos("pan");
+    obtenerArticulos("pan", productosEnELCarrito);
   }, false);
   rollos.addEventListener("click", () => {
     u.mostrarPartedeMenu(divProductosCategorias);
-    obtenerArticulos("rollos");
+    obtenerArticulos("rollos", productosEnELCarrito);
   }, false);
   tortas.addEventListener("click", () => {
     u.mostrarPartedeMenu(divProductosCategorias);
-    obtenerArticulos("tortas");
+    obtenerArticulos("tortas", productosEnELCarrito);
   }, false);
 
 
@@ -131,7 +132,9 @@ window.onload = () => {
   }, false);
 
   logout.addEventListener("click", () => {
-    cerrarSesion();
+    cerrarSesion();//Para que al cerrar sesión nos vuelva al home.
+    u.cambiarBotonesMenu(botonHistoria);
+    u.mostrarPartedeMenu(divHistoria);
   }, false);
 
 

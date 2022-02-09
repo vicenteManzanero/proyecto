@@ -113,7 +113,7 @@ export const mostrarProducto = (objeto, n) => {
         divTipo.setAttribute('class', 'col d-flex align-items-center justify-content-center');
         divTipo.innerHTML = `
         <select class="form-select" aria-label="Default select example">
-            <option selected>SELECCIONE</option>
+            <option selected value="">SELECCIONE</option>
             <option value="0.250">250 g</option>
             <option value="0.500">500 g</option>
             <option value="1">1 Kg</option>
@@ -171,15 +171,19 @@ export const crearCabecera = () => {//Crea la cabecera para mostrar los producto
 export const crearCabeceraCarrito = (donde) => {//Crea la cabecera para mostrar los productos.
     let div = d.createElement('div');
     div.setAttribute('class', 'row');
-     d.getElementById(donde).innerHTML = '';//Para que al llamar a la función cada vez no se creen más de una vez la  cabecera. */
+   let cabeceraCarrito= d.getElementById(donde);
+    
+    cabeceraCarrito.innerHTML = '';//Para que al llamar a la función cada vez no se creen más de una vez la  cabecera. */
     div.innerHTML = `
     <div class= "col d-flex justify-content-center cabeceraArticulo">PRODUCTO</div>
     <div class= "col d-flex justify-content-center cabeceraArticulo">PRECIO</div>
     <div class= "col d-flex justify-content-center cabeceraArticulo">CANTIDAD</div>
     <div class= "col d-flex justify-content-center cabeceraArticulo">TOTAL</div>`;
-    d.getElementById(donde).appendChild(div);
+    cabeceraCarrito.appendChild(div);
+    
 }
 export const enviarProductoCarrito = (objeto)=>{
+    d.getElementById('resultadoCarrito').innerHTML="";//Para cada vez que añadimos o borramos un producto del carrito se vuelva a pintar completamente.
     let div = d.createElement('div');
     div.setAttribute('class', 'row ');
     div.innerHTML = `
@@ -188,6 +192,7 @@ export const enviarProductoCarrito = (objeto)=>{
     <div class= "col d-flex align-items-center justify-content-center">${objeto.cantidad} ${objeto.tipo}</div>
     <div class= "col d-flex align-items-center justify-content-center">${objeto.total} €</div>
     `;
+    
     d.getElementById('resultadoCarrito').appendChild(div);
     
 }

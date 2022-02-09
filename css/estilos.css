@@ -7,6 +7,19 @@
 body {
   padding: 15px;
 }
+#comunicacion_usuario{
+    
+  text-align: center;
+   width: 500px;  
+background: #000;
+border-radius: 4px;
+margin-left: 35%;
+font-family: "arial-black";
+font-size: 14px;
+color: #FFF;
+padding: 8px 12px;
+
+}
 #productosCategorias,#productos {/* Para que no intefiera el borde con nuestras funciones*/
   border: none;
 }

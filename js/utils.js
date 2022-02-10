@@ -132,21 +132,12 @@ export const mostrarProducto = (objeto, n) => {
         `;
         d.getElementById(`tipo${n}`).appendChild(divTipo);
     }
-<<<<<<< HEAD
     let logout= d.getElementById('logout');
     let boton=d.getElementById(`boton${n}`);
     let tipos=d.getElementById(`tipos${n}`);
     if(logout.classList.contains("hidden")){//Para dejar deshabilitar esas opciones si no estás logeado;
         boton.setAttribute("disabled","");
         tipos.setAttribute("disabled","");
-=======
-    let logout = d.getElementById('logout');
-    let boton = d.getElementById(`boton${n}`);
-    let tipos = d.getElementById(`tipos${n}`);
-    if (logout.classList.contains("hidden")) {
-        boton.setAttribute("disabled", "");
-        tipos.setAttribute("disabled", "");
->>>>>>> 5553f652f48109a47a21db144bbc64cc3c5fe7a2
     }
 }
 

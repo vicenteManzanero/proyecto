@@ -6,7 +6,7 @@ const db = getFirestore(app);
 const productos = collection(db, "Productos");
 let d = document;
 
-export const obtenerArticulos = async (categoria,productosEnELCarrito) => {//cambiar categoria 
+export const obtenerArticulos = async (categoria,productosEnELCarrito,usuarioDelPedido) => {//cambiar categoria 
     try {
         u.crearCabecera();
         let semaforo=true;
@@ -16,7 +16,7 @@ export const obtenerArticulos = async (categoria,productosEnELCarrito) => {//cam
             col.docs.map((documento, index) => {
                 u.mostrarProducto(documento.data(), index);
                 d.getElementById(`boton${index}`).addEventListener('click', (e) => {
-                    if (e.target.parentNode.parentNode.children[4].children[0].childNodes[0].value == "" ||(documento.data().venta ==="peso"&&  e.target.parentNode.parentNode.children[4].children[0].childNodes[1].value=="") ){// || e.target.parentNode.parentNode.children[4].children[0].childNodes[1].value==""
+                    if (parseInt( e.target.parentNode.parentNode.children[4].children[0].childNodes[0].value)<1||isNaN( e.target.parentNode.parentNode.children[4].children[0].childNodes[0].value) ||(documento.data().venta ==="peso"&&  e.target.parentNode.parentNode.children[4].children[0].childNodes[1].value=="") ){
                         u.mensajesUsuario('Introduzca una cantidad o seleccione un peso para el producto');//Informar de que tiene que introducir una cantidad o seleccionar un peso
                     } else {
                                 let pedido = {};
@@ -24,13 +24,17 @@ export const obtenerArticulos = async (categoria,productosEnELCarrito) => {//cam
                                 pedido.precio = parseFloat(e.target.parentNode.parentNode.children[3].innerHTML); //Precio producto
                                 console.log(pedido.precio);
                         if (documento.data().venta === 'unidad') {
+                          
                                 pedido.tipo = 'Unidad';
                                 pedido.cantidad = parseInt(e.target.parentNode.parentNode.children[4].children[0].childNodes[0].value); //Cantidad en unidades
                                 pedido.total = pedido.cantidad * pedido.precio;
+                                e.target.parentNode.parentNode.children[4].children[0].childNodes[0].value = "";//Para dejar en valor por defecto el campo de formulario.
                         } else {
+                         
                             pedido.tipo = 'Kg';
                                 pedido.cantidad = parseFloat(e.target.parentNode.parentNode.children[4].children[0].childNodes[1].value);//Cantidad en gramos
                                 pedido.total = pedido.cantidad * pedido.precio;
+                                e.target.parentNode.parentNode.children[4].children[0].childNodes[1].value="";//Para dejar en valor por defecto el campo de formulario.
                         }
                         
                         productosEnELCarrito.map((v)=>{//Comprueba si el producto ya existe en el carrito para añadirlo.
@@ -43,6 +47,7 @@ export const obtenerArticulos = async (categoria,productosEnELCarrito) => {//cam
                         if(semaforo)productosEnELCarrito.push(pedido);
                        console.log(productosEnELCarrito);
                         u.enviarProductoCarrito(productosEnELCarrito,'cabeceraCarrito');//Para que nos muestre la cabecera y el pedido.
+                        u.mensajesUsuario('Producto añadido al carrito.');
                     }
 
                 }, false);

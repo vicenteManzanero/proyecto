@@ -21,6 +21,7 @@ window.onload = () => {
   let botonProducto = d.getElementById("botonProducto");
   let logo = d.getElementById("logo");
   let nombreEmpresa = d.getElementById("nombre");
+  let usuarioDelPedido="";
   var productosEnELCarrito=[];//Para controlar el carrito que se pierde solo se guardará en la base de datos en caso de completar el pedido.
 
 
@@ -45,27 +46,27 @@ window.onload = () => {
 
   hojaldre.addEventListener("click", () => {
     u.mostrarPartedeMenu(divProductosCategorias);
-    obtenerArticulos("hojaldre", productosEnELCarrito);
+    obtenerArticulos("hojaldre", productosEnELCarrito,usuarioDelPedido);
   }, false);
   bobas.addEventListener("click", () => {
     u.mostrarPartedeMenu(divProductosCategorias);
-    obtenerArticulos("bobas", productosEnELCarrito);
+    obtenerArticulos("bobas", productosEnELCarrito,usuarioDelPedido);
   }, false);
   refrescos.addEventListener("click", () => {
     u.mostrarPartedeMenu(divProductosCategorias);
-    obtenerArticulos("refrescos", productosEnELCarrito);
+    obtenerArticulos("refrescos", productosEnELCarrito,usuarioDelPedido);
   }, false);
   pan.addEventListener("click", () => {
     u.mostrarPartedeMenu(divProductosCategorias);
-    obtenerArticulos("pan", productosEnELCarrito);
+    obtenerArticulos("pan", productosEnELCarrito,usuarioDelPedido);
   }, false);
   rollos.addEventListener("click", () => {
     u.mostrarPartedeMenu(divProductosCategorias);
-    obtenerArticulos("rollos", productosEnELCarrito);
+    obtenerArticulos("rollos", productosEnELCarrito,usuarioDelPedido);
   }, false);
   tortas.addEventListener("click", () => {
     u.mostrarPartedeMenu(divProductosCategorias);
-    obtenerArticulos("tortas", productosEnELCarrito);
+    obtenerArticulos("tortas", productosEnELCarrito,usuarioDelPedido);
   }, false);
 
 
@@ -107,6 +108,8 @@ window.onload = () => {
     enviarDatosLogin.addEventListener("click", () => {
       if (u.comprobarDatos(d.getElementById("usuario").value, d.getElementById("clave").value)) {//Comprobamos que los datos de correo , password, telf sean correctos.
         iniciarSesionComprobacion(d.getElementById("usuario").value, d.getElementById("clave").value);
+       usuarioDelPedido= d.getElementById("usuario").value;
+       console.log(usuarioDelPedido);
         u.cambiarBotonesMenu(botonHistoria);
         u.mostrarPartedeMenu(divHistoria);
       } else {
@@ -125,6 +128,8 @@ window.onload = () => {
     registrar.addEventListener("click", () => {
       if (u.comprobarDatos(d.getElementById("usuarioRegistro").value, d.getElementById("claveRegistro").value, d.getElementById("telefonoRegistro").value)) {//Comprobamos que los datos de correo , password, telf sean correctos.
         crearNuevoUsuario(d.getElementById("usuarioRegistro").value, d.getElementById("claveRegistro").value, d.getElementById("telefonoRegistro").value);//Si los datos están bien creamos usuario
+        usuarioDelPedido= d.getElementById("usuario").value;
+        console.log(usuarioDelPedido);
         u.cambiarBotonesMenu(botonHistoria);
         u.mostrarPartedeMenu(divHistoria);
       } else {

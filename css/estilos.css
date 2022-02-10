@@ -7,6 +7,21 @@
 body {
   padding: 15px;
 }
+
+#historia {
+  max-width: 100%;
+  display: inline-block;
+  position: relative;
+}
+#historia p{
+  max-width: 50%;
+  display: inline-block;
+  position: relative;
+}
+#carrusel {
+  position: relative;
+  top: -270px;
+}
 #comunicacion_usuario{
     
   text-align: center;

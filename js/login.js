@@ -26,7 +26,7 @@ export const crearNuevoUsuario =(correo,contraseña,telf,)=>{//Crea un nuevo usu
       console.log(credenciales); // Credenciales del usuario creado.
       guardarUsuario(u.nuevoUsuarioJSON(correo,telf));//El usuario pasado a JSON.
       cambiarseccionLogin(true);   
-      u.closeModal('backdrop','exampleModal');//Para quitar el modal;
+      u.closeModal('backdrop','exampleModal2');//Para quitar el modal;
       
     })
     .catch((error) => {

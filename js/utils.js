@@ -3,13 +3,12 @@ let d = document;
 export const mostrarHistoria = () => {
     let imagenes = ["../img/carrusel_historia/1.jpg", "../img/carrusel_historia/2.jpg", "../img/carrusel_historia/3.jpg", "../img/carrusel_historia/4.jpg", "../img/carrusel_historia/5.jpg", "../img/carrusel_historia/6.jpg"];
     let i = 0;
-    let texto ='Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, consequatur enim omnis totam vel veniam est ea voluptatum nulla beatae dolor repellat voluptatibus iusto assumenda deserunt velit doloribus facilis maiores. Cum repudiandae adipisci dolorum ab, ratione earum natus accusamus sunt enim alias non pariatur vitae voluptas culpa molestias dignissimos reiciendis officiis consectetur ducimus expedita fugit. Culpa quis laborum quidem etLorem ipsum dolor sit amet consectetur   adipisicing elit. Repellendus, consequatur enim omnis totam vel veniam est ea voluptatum nulla beatae dolor repellat voluptatibus iusto assumenda deserunt velit doloribus facilis maiores. Cum repudiandae adipisci dolorum ab, ratione earum natus accusamus sunt enim alias non pariatur vitae voluptas culpa molestias dignissimos reiciendis officiis consectetur ducimus expedita fugit. Culpa quis laborum quidem etLorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, consequatur enim omnis totam vel veniam est ea voluptatum nulla beatae dolor repellat voluptatibus iusto assumenda deserunt velit doloribus facilis maiores. Cum repudiandae adipisci dolorum ab, ratione earum natus accusamus sunt enim alias non pariatur vitae voluptas culpa molestias dignissimos reiciendis officiis consectetur ducimus expedita fugit. Culpa quis laborum quidem etLorem ipsum dolor sit amet ';
+   
     setInterval(() => {
         let img = d.createElement("img");
         img.setAttribute("src", imagenes[i]);
         img.setAttribute("class", "carrusel");
         d.getElementById('carrusel').innerHTML = img.outerHTML;
-        d.getElementById('carrusel').innerHTML += texto;
         
         i++;
         if (i >= imagenes.length) {
@@ -127,7 +126,7 @@ export const mostrarProducto = (objeto, n) => {
     let logout= d.getElementById('logout');
     let boton=d.getElementById(`boton${n}`);
     let tipos=d.getElementById(`tipos${n}`);
-    if(logout.classList.contains("hidden")){
+    if(logout.classList.contains("hidden")){//Para dejar deshabilitar esas opciones si no estás logeado;
         boton.setAttribute("disabled","");
         tipos.setAttribute("disabled","");
     }
@@ -181,7 +180,7 @@ export const crearCabeceraCarrito = (donde) => {//Crea la cabecera para mostrar 
     <div class= "col d-flex justify-content-center cabeceraArticulo">TOTAL</div>`;
     cabeceraCarrito.appendChild(div); 
 }
-export const enviarProductoCarrito = (carrito)=>{
+export const enviarProductoCarrito = (carrito, usuarioDelPedido)=>{
     d.getElementById('resultadoCarrito').innerHTML="";//Para cada vez que añadimos o borramos un producto del carrito se vuelva a pintar completamente.
    let totalCompra=0;
   
@@ -199,8 +198,24 @@ export const enviarProductoCarrito = (carrito)=>{
 });
 let divTotal = d.createElement('div');
 divTotal.setAttribute('class', 'row ');
-divTotal.innerHTML = `  <div class= "col d-flex align-items-center justify-content-center">El precio total del pedido es de ${totalCompra}€                   <button type="button" class="btn btn-success" id="confirmarPedido">confirmar el Pedido</button></div>`;
+divTotal.innerHTML = `  <div class= "col d-flex align-items-center justify-content-center">El precio total del pedido es de ${totalCompra}€ .     Fecha del pedido:   <input type="date" id="fechaPedido">       <button type="button" class="btn btn-success" id="confirmarPedido">confirmar el Pedido</button></div>`;
 d.getElementById('resultadoCarrito').appendChild(divTotal);
+let botonPedido=d.getElementById("confirmarPedido");
+botonPedido.addEventListener("click",(e)=>{
+ let fechasinFiltrar=   d.getElementById("fechaPedido").value;
+ let hoy = new Date();
+ 
+ let fechaPedido = new Date(fechasinFiltrar);
+console.log(fechaPedido.getDay()); //Comparar que no sea 0;
+console.log( fechaPedido.toLocaleDateString());
+console.log(hoy.toLocaleDateString());
+if(fechaPedido>hoy){// falta crear JSON que sea pedido con los datos del carrito e introducirlo en la base de datos.
+    
+     mensajesUsuario('Pedido procesado correctamente.');
+}else mensajesUsuario('Recuerde los domingos estamos cerrados y necesitamos un día para la preparación del pedido.');
+
+})
+
 }
 export const carritoVacio = ()=>{
     d.getElementById('carrito').innerHTML = 'El carrito está vacio';

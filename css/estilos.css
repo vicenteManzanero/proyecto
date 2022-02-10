@@ -8,39 +8,26 @@ body {
   padding: 15px;
 }
 
-#historia {
-  max-width: 100%;
-  display: inline-block;
-  position: relative;
-}
-#historia p{
-  max-width: 50%;
-  display: inline-block;
-  position: relative;
-}
-#carrusel {
-  position: relative;
-  top: -270px;
-}
-#comunicacion_usuario{
-    
-  text-align: center;
-   width: 500px;  
-background: #000;
-border-radius: 4px;
-margin-left: 35%;
-font-family: "arial-black";
-font-size: 14px;
-color: #FFF;
-padding: 8px 12px;
 
+#comunicacion_usuario {
+  text-align: center;
+  width: 500px;
+  background: #000;
+  border-radius: 4px;
+  margin-left: 35%;
+  font-family: "arial-black";
+  font-size: 14px;
+  color: #fff;
+  padding: 8px 12px;
 }
-#productosCategorias,#productos {/* Para que no intefiera el borde con nuestras funciones*/
+#productosCategorias,
+#productos {
+  /* Para que no intefiera el borde con nuestras funciones*/
   border: none;
 }
-#nombre:hover,#logo:hover{
+#nombre:hover,
+#logo:hover {
   cursor: pointer;
-
 }
 .hidden {
   display: none !important;
@@ -127,7 +114,7 @@ a:active {
   color: black;
 }
 
-#ventanaLogin{
+#ventanaLogin {
   border: 5px solid burlywood;
   border-radius: 15px;
 }
@@ -143,7 +130,6 @@ a:active {
 input[type="text"] {
   text-align: center;
 }
-
 
 .cabeceraArticulo {
   height: 25px !important;
@@ -169,16 +155,17 @@ section {
   margin-left: 50px;
   margin-bottom: 25px;
 }
-#historia{
-  padding:15px;
-  height: auto;
-  min-height: 500px;
-  min-width: 500px;
-  text-align: justify;
+#historia {
+  padding: 15px;
 }
-#historiaTitulo{
+#historiaTitulo {
   margin: 45px;
 }
+
+#carrusel {
+  margin-top: 20px;
+}
+
 
 
 #resultado {
@@ -208,38 +195,40 @@ footer {
   border-radius: 15px;
   padding: 1em;
 }
-footer p{
+footer p {
   text-align: center;
 }
-footer h2{
+footer h2 {
   text-align: center;
 }
-div .contacto p{
+div .contacto p {
   margin-top: 2em;
   padding-left: 2em;
   padding-right: 2em;
 }
 
-p.tiempo{
+p.tiempo {
   margin-top: 1em;
 }
 
-#carrito{
+#carrito {
   display: grid;
-min-height: 300px;
+  min-height: 300px;
+  text-align: center;
 }
 /* #resultadoCarrito{
   overflow-x: hidden;
   overflow-y: scroll;
 } */
-#totalCarrito{
+#totalCarrito {
   text-align: center;
 }
-#totalCarrito button{
+#totalCarrito button {
   margin: 25px 15px;
 }
-#cabeceraCarrito{
+#cabeceraCarrito {
   margin: 5px 0px;
 }
-
-
+#comunicacion_usuario{
+  height: 100px;
+}

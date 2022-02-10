@@ -3,13 +3,22 @@ let d = document;
 export const mostrarHistoria = () => {
     let imagenes = ["../img/carrusel_historia/1.jpg", "../img/carrusel_historia/2.jpg", "../img/carrusel_historia/3.jpg", "../img/carrusel_historia/4.jpg", "../img/carrusel_historia/5.jpg", "../img/carrusel_historia/6.jpg"];
     let i = 0;
+<<<<<<< HEAD
    
+=======
+    let texto = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, consequatur enim omnis totam vel veniam est ea voluptatum nulla beatae dolor repellat voluptatibus iusto assumenda deserunt velit doloribus facilis maiores. Cum repudiandae adipisci dolorum ab, ratione earum natus accusamus sunt enim alias non pariatur vitae voluptas culpa molestias dignissimos reiciendis officiis consectetur ducimus expedita fugit. Culpa quis laborum quidem etLorem ipsum dolor sit amet consectetur   adipisicing elit. Repellendus, consequatur enim omnis totam vel veniam est ea voluptatum nulla beatae dolor repellat voluptatibus iusto assumenda deserunt velit doloribus facilis maiores. Cum repudiandae adipisci dolorum ab, ratione earum natus accusamus sunt enim alias non pariatur vitae voluptas culpa molestias dignissimos reiciendis officiis consectetur ducimus expedita fugit. Culpa quis laborum quidem etLorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, consequatur enim omnis totam vel veniam est ea voluptatum nulla beatae dolor repellat voluptatibus iusto assumenda deserunt velit doloribus facilis maiores. Cum repudiandae adipisci dolorum ab, ratione earum natus accusamus sunt enim alias non pariatur vitae voluptas culpa molestias dignissimos reiciendis officiis consectetur ducimus expedita fugit. Culpa quis laborum quidem etLorem ipsum dolor sit amet ';
+>>>>>>> 5553f652f48109a47a21db144bbc64cc3c5fe7a2
     setInterval(() => {
         let img = d.createElement("img");
         img.setAttribute("src", imagenes[i]);
         img.setAttribute("class", "carrusel");
         d.getElementById('carrusel').innerHTML = img.outerHTML;
+<<<<<<< HEAD
         
+=======
+        d.getElementById('carrusel').innerHTML += texto;
+
+>>>>>>> 5553f652f48109a47a21db144bbc64cc3c5fe7a2
         i++;
         if (i >= imagenes.length) {
             i = 0;
@@ -94,9 +103,9 @@ export const mostrarProducto = (objeto, n) => {
     <button type="button" class="btn btn-success" id="boton${n}">Añadir</button>
     </div>
     `;
-    
+
     d.getElementById('resultado').appendChild(div);
-  
+
 
     let aler = d.createElement('div');
     aler.setAttribute('class', 'col d-flex align-items-center justify-content-center');
@@ -123,14 +132,23 @@ export const mostrarProducto = (objeto, n) => {
         `;
         d.getElementById(`tipo${n}`).appendChild(divTipo);
     }
+<<<<<<< HEAD
     let logout= d.getElementById('logout');
     let boton=d.getElementById(`boton${n}`);
     let tipos=d.getElementById(`tipos${n}`);
     if(logout.classList.contains("hidden")){//Para dejar deshabilitar esas opciones si no estás logeado;
         boton.setAttribute("disabled","");
         tipos.setAttribute("disabled","");
+=======
+    let logout = d.getElementById('logout');
+    let boton = d.getElementById(`boton${n}`);
+    let tipos = d.getElementById(`tipos${n}`);
+    if (logout.classList.contains("hidden")) {
+        boton.setAttribute("disabled", "");
+        tipos.setAttribute("disabled", "");
+>>>>>>> 5553f652f48109a47a21db144bbc64cc3c5fe7a2
     }
-    } 
+}
 
 export const cambiarBotonesMenu = (opcionMenu) => {
     botonCarrito.classList.remove("seleccionado");
@@ -171,14 +189,14 @@ export const crearCabecera = () => {//Crea la cabecera para mostrar los producto
 export const crearCabeceraCarrito = (donde) => {//Crea la cabecera para mostrar los productos.
     let div = d.createElement('div');
     div.setAttribute('class', 'row');
-   let cabeceraCarrito= d.getElementById(donde);
+    let cabeceraCarrito = d.getElementById(donde);
     cabeceraCarrito.innerHTML = '';//Para que al llamar a la función cada vez no se creen más de una vez la  cabecera. */
     div.innerHTML = `
     <div class= "col d-flex justify-content-center cabeceraArticulo">PRODUCTO</div>
     <div class= "col d-flex justify-content-center cabeceraArticulo">PRECIO</div>
     <div class= "col d-flex justify-content-center cabeceraArticulo">CANTIDAD</div>
     <div class= "col d-flex justify-content-center cabeceraArticulo">TOTAL</div>`;
-    cabeceraCarrito.appendChild(div); 
+    cabeceraCarrito.appendChild(div);
 }
 export const enviarProductoCarrito = (carrito, usuarioDelPedido)=>{
     d.getElementById('resultadoCarrito').innerHTML="";//Para cada vez que añadimos o borramos un producto del carrito se vuelva a pintar completamente.
@@ -187,7 +205,7 @@ export const enviarProductoCarrito = (carrito, usuarioDelPedido)=>{
     carrito.map((objeto)=>{
         let div = d.createElement('div');
         div.setAttribute('class', 'row ');
-    div.innerHTML = `
+        div.innerHTML = `
     <div class= "col d-flex align-items-center justify-content-center">${objeto.nombre}</div>
     <div class= "col d-flex align-items-center justify-content-center">${objeto.precio} €</div>
     <div class= "col d-flex align-items-center justify-content-center">${objeto.cantidad} ${objeto.tipo}</div>
@@ -217,6 +235,8 @@ if(fechaPedido>hoy){// falta crear JSON que sea pedido con los datos del carrito
 })
 
 }
-export const carritoVacio = ()=>{
+
+
+export const carritoVacio = () => {
     d.getElementById('carrito').innerHTML = 'El carrito está vacio';
 }

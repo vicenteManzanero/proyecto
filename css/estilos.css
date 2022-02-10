@@ -225,7 +225,21 @@ p.tiempo{
 }
 
 #carrito{
-  height: 50vh;
+  display: grid;
+min-height: 300px;
+}
+/* #resultadoCarrito{
+  overflow-x: hidden;
+  overflow-y: scroll;
+} */
+#totalCarrito{
+  text-align: center;
+}
+#totalCarrito button{
+  margin: 25px 15px;
+}
+#cabeceraCarrito{
+  margin: 5px 0px;
 }
 
 

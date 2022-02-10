@@ -56,9 +56,20 @@ section {
 #contenedorMensaje * {
   font-size: 1.1em;
 }
-#mensajesUsuarioLogin{
-  height: 100px;
+#contenedorMensajeLogin,
+#contenedorMensajeLogin2 {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #000;
+  border-radius: 4px;
+  font-family: "arial-black";
+  font-size: 14px;
+  color: #fff;
 }
+
 /*//////////////////////////////////////////CABECERA//////////////////////////////////////////*/
 
 header {

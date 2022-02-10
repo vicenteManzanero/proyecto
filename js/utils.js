@@ -37,9 +37,6 @@ export const comprobarDatos = (correo, password, telf = "") => {//Función cread
 
     var comprobarPassword = (/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&*-])[A-Za-z\d@$!%*?&]{8,}$/.test(password));//Obligamos a una constraseña segura de mínimo ocho caracteres, al menos una letra mayúscula, una letra minúscula, un número y un carácter especial.
     var comprobacionTelf = (/(\+34|0034|34)?[ -]*(6|7)[ -]*([0-9][ -]*){8}/).test(telf);
-    console.log(comprobacionCorreo);
-    console.log(comprobarPassword);
-    console.log(comprobacionTelf);
     if (telf == "") return (comprobarPassword && comprobacionCorreo);//Para el inicio de sesión .
     else return (comprobarPassword && comprobacionCorreo && comprobacionTelf);//Para registrase por primera vez.
 
@@ -204,25 +201,11 @@ export const crearCabeceraCarrito = (donde) => {//Crea la cabecera para mostrar 
     
     cabeceraCarrito.appendChild(div);
 }
-<<<<<<< HEAD
 export const enviarProductoCarrito = (carrito, usuarioDelPedido) => {
     d.getElementById('resultadoCarrito').innerHTML = "";//Para cada vez que añadimos o borramos un producto del carrito se vuelva a pintar completamente.
     let totalCompra = 0;
 
     carrito.map((objeto) => {
-=======
-export function PedidosJSON(Correo,Pedido,Fecha){//Creamos los objetos que recibimos por formulario.
-    return {correo: Correo,
-            pedido: Pedido,
-            fecha: Fecha
-        }
-}
-export const enviarProductoCarrito = (carrito, usuarioDelPedido)=>{
-    d.getElementById('resultadoCarrito').innerHTML="";//Para cada vez que añadimos o borramos un producto del carrito se vuelva a pintar completamente.
-   let totalCompra=0;
-  console.log(carrito);
-    carrito.map((objeto)=>{
->>>>>>> 6897be07a8d894d8495f0395c56f162ba550741a
         let div = d.createElement('div');
         div.setAttribute('class', 'row ');
         div.innerHTML = `
@@ -230,7 +213,6 @@ export const enviarProductoCarrito = (carrito, usuarioDelPedido)=>{
     <div class= "col d-flex align-items-center justify-content-center">${objeto.precio} €</div>
     <div class= "col d-flex align-items-center justify-content-center">${objeto.cantidad} ${objeto.tipo}</div>
     <div class= "col d-flex align-items-center justify-content-center">${Math.round((objeto.total + Number.EPSILON) * 100) / 100} €</div>
-<<<<<<< HEAD
     `;//El math.Round del final es para que no diera a veces resultados  con muchos decimales;
         totalCompra += Math.round((objeto.total + Number.EPSILON) * 100) / 100;
         d.getElementById('resultadoCarrito').appendChild(div);
@@ -250,51 +232,6 @@ export const enviarProductoCarrito = (carrito, usuarioDelPedido)=>{
         if (fechaPedido > hoy) {// falta crear JSON que sea pedido con los datos del carrito e introducirlo en la base de datos.
             mensajesUsuario('Pedido procesado correctamente.');
         } else mensajesUsuario('Recuerde los domingos estamos cerrados y necesitamos un día para la preparación del pedido.');
-=======
-    <div class= "col d-flex align-items-center justify-content-center"><img class="iconoBorrar" src="../img/borrar.png" width="30" height="30" /> </div>
-    `;//El math.Round del final es para que no diera a veces resultados  con muchos decimales ya que al ser la conversión a float hay veces que salen cosas raras;
-    totalCompra+=Math.round((objeto.total + Number.EPSILON) * 100) / 100;
-    
-    d.getElementById('resultadoCarrito').appendChild(div);
-});
-
-let divTotal = d.createElement('div');
-divTotal.setAttribute('class', 'row ');
-divTotal.innerHTML = `  <div class= "col d-flex align-items-center justify-content-center">El precio total del pedido es de ${totalCompra}€ .     Introducir del pedido:   <input type="date" id="fechaPedido">       <button type="button" class="btn btn-success" id="confirmarPedido">confirmar el Pedido</button></div>`;
-
-if(carrito.length==0) {//comprobamos que si borramos producto quede alguno en la lista sino ocultamos la parte de confirmar el pedido.
-   divTotal.setAttribute('class', "hidden");
-   d.getElementById('resultadoCarrito').innerHTML="No hay más productos en el carrito";/*Primero cambiamos el texto del carrito.
-    y luego añadimos el confirmar pedido se hace de esta manera para que no de un error de undefined el addEventListener de realizar pedido aunque el funcionamiento no se vería afectado.*/
-   d.getElementById('resultadoCarrito').appendChild(divTotal);
-
-}
-d.getElementById('resultadoCarrito').appendChild(divTotal);
-
-let botonPedido=d.getElementById("confirmarPedido");
-let iconosBorrar= d.getElementsByClassName("iconoBorrar");
-for(let i=0; i<iconosBorrar.length; i++){
-  
-    iconosBorrar[i].addEventListener("click",(event)=>{
-        console.log(carrito[i]);
-        carrito.splice(i, 1);//para borrar el elemento del carrito que queremos;
-        console.log( ` longitud carrito ${carrito.length}`);
-       
-        enviarProductoCarrito(carrito, usuarioDelPedido);
-
-    });
-
-}
-botonPedido.addEventListener("click",(e)=>{//Para crear el pedido una vez todos los pasos son correctos.
- let fechasinFiltrar=   d.getElementById("fechaPedido").value;
- let hoy = new Date();
- let fechaPedido = new Date(fechasinFiltrar);
-if(fechaPedido>hoy && fechaPedido.getDay()!=0 ){// falta crear JSON que sea pedido con los datos del carrito e introducirlo en la base de datos.
- guardarPedido(pedidosDB, PedidosJSON(usuarioDelPedido,carrito,fechasinFiltrar));
- carrito=[];//para vaciarlo por si el usuario quiere hacer otro pedido;
-   carritoVacio();
-}else mensajesUsuario('Recuerde los domingos estamos cerrados y necesitamos un día para la preparación del pedido.');
->>>>>>> 6897be07a8d894d8495f0395c56f162ba550741a
 
     })
 

@@ -112,7 +112,7 @@ window.onload = () => {
         u.cambiarBotonesMenu(botonHistoria);
         u.mostrarPartedeMenu(divHistoria);
       } else {
-        u.mensajesUsuarioLogin("Introduce todos los campos correctamente",'mensajesUsuarioLogin');
+        u.mensajesUsuarioLogin("Introduce todos los campos correctamente",'contenedorMensajeLogin');
       }
     }, false);
 
@@ -131,7 +131,7 @@ window.onload = () => {
         u.cambiarBotonesMenu(botonHistoria);
         u.mostrarPartedeMenu(divHistoria);
       } else {
-        u.mensajesUsuarioLogin("Introduce todos los campos correctamente",'mensajesUsuarioLogin2');
+        u.mensajesUsuarioLogin("Introduce todos los campos correctamente",'contenedorMensajeLogin2');
       }
     }, false);
     d.getElementById('cerrarCrear').addEventListener('click', () => {

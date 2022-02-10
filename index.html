@@ -49,8 +49,12 @@
                     </form>
                 </div>
                 <div class="modal-footer">
+
                     <button type="button" class="btn btn-secondary" id="cerrar">CERRAR</button>
                     <button type="button" class="btn btn-primary" id="entrar">ENVIAR</button>
+                    <div class="container hidden" id="contenedorMensajeLogin">
+                    
+                    </div>
                 </div>
             </div>
         </div>
@@ -74,14 +78,17 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" id="cerrarCrear">CERRAR</button>
                     <button type="button" class="btn btn-primary" id="registrarCuenta">CREAR CUENTA</button>
+                    <div class="container hidden" id="contenedorMensajeLogin2">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="modal-backdrop fade show" id="backdrop" style="display: none;"></div>
+    <div class="container" id="contenedorMensaje">
+        <div id="comunicacion_usuario" class="hidden"></div>
+    </div>
 
-
-    <div id="comunicacion_usuario" class="hidden"></div>
     <section id="historia">
         <div id="carrusel" class="container"></div>
         <h3 id="historiaTitulo">Nuestros inicos</h3>
@@ -99,7 +106,7 @@
             las riendas han recaído en Luis que continúa con la tradición familiar de hacer productos de máxima calidad.
         </p>
 
-        
+
     </section>
     <section id="carrito" class="hidden">
         <div id="cabeceraCarrito"></div>

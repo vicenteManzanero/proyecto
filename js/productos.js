@@ -16,6 +16,7 @@ export const obtenerArticulos = async (categoria,productosEnELCarrito,usuarioDel
             col.docs.map((documento, index) => {
                 u.mostrarProducto(documento.data(), index);
                 d.getElementById(`boton${index}`).addEventListener('click', (e) => {
+                    d.getElementById('totalCarrito').innerHTML = ``;
                     if ((documento.data().venta ==="unidad"&& (parseInt( e.target.parentNode.parentNode.children[4].children[0].childNodes[0].value)<1||isNaN( e.target.parentNode.parentNode.children[4].children[0].childNodes[0].value) ))||(documento.data().venta ==="peso"&&  e.target.parentNode.parentNode.children[4].children[0].childNodes[1].value=="") ){
                         u.mensajesUsuario('Introduzca una cantidad o seleccione un peso para el producto');//Informar de que tiene que introducir una cantidad o seleccionar un peso
                     } else {

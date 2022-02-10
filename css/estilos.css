@@ -4,11 +4,22 @@
     outline: 1px solid red;
 } */
 
+/*//////////////////////////////////////////COMUNES//////////////////////////////////////////*/
 body {
   padding: 15px;
 }
-
-
+#nombre {
+  display: inline-block;
+  align-self: center;
+  margin: auto;
+  font-size: 35px;
+  font-family: "Yellowtail", cursive;
+  color: #d9a23d;
+}
+#logo {
+  width: 105px;
+  align-self: flex-start;
+}
 #comunicacion_usuario {
   text-align: center;
   width: 500px;
@@ -32,29 +43,47 @@ body {
 .hidden {
   display: none !important;
 }
+section {
+  border: 5px solid burlywood;
+  margin: auto;
+  margin-bottom: 15px;
+  border-radius: 15px;
+}
+#contenedorMensaje {
+  height: 80px;
+}
 
-/*Aquí empieza la cabecera*/
+#contenedorMensaje * {
+  font-size: 1.1em;
+}
+#contenedorMensajeLogin,
+#contenedorMensajeLogin2 {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #000;
+  border-radius: 4px;
+  font-family: "arial-black";
+  font-size: 14px;
+  color: #fff;
+}
+
+/*//////////////////////////////////////////CABECERA//////////////////////////////////////////*/
 
 header {
   display: flex;
   flex-direction: row;
 }
-
-#logo {
-  width: 105px;
-  align-self: flex-start;
+.cabeceraArticulo {
+  height: 25px !important;
+}
+#cabeceraArticulos {
+  margin-right: 25px;
 }
 
-#nombre {
-  display: inline-block;
-  align-self: center;
-  margin: auto;
-  font-size: 35px;
-  font-family: "Yellowtail", cursive;
-  color: #d9a23d;
-}
-
-/*Aquí empieza el menú*/
+/*//////////////////////////////////////////MENÚ//////////////////////////////////////////*/
 
 nav {
   padding: 1em;
@@ -114,13 +143,13 @@ a:active {
   color: black;
 }
 
+/*//////////////////////////////////////////LOGIN//////////////////////////////////////////*/
 #ventanaLogin {
   border: 5px solid burlywood;
   border-radius: 15px;
 }
-#cabeceraArticulos {
-  margin-right: 25px;
-}
+
+/*//////////////////////////////////////////MODAL//////////////////////////////////////////*/
 .modal-body {
   text-align: center;
 }
@@ -131,20 +160,7 @@ input[type="text"] {
   text-align: center;
 }
 
-.cabeceraArticulo {
-  height: 25px !important;
-}
-
-/*Aquí empieza el section*/
-
-section {
-  border: 5px solid burlywood;
-  margin: auto;
-  margin-bottom: 15px;
-  border-radius: 15px;
-}
-
-/*Apartado del carrusel*/
+/*//////////////////////////////////////////CARRUSEL Y HISTORIA//////////////////////////////////////////*/
 .carrusel {
   float: right;
   width: 400px;
@@ -166,8 +182,6 @@ section {
   margin-top: 20px;
 }
 
-
-
 #resultado {
   overflow-x: hidden;
   overflow-y: scroll;
@@ -176,19 +190,23 @@ section {
 #resultado > div div {
   height: 150px;
 }
-
-/* .row {
-display: flex;
-vertical-align: middle;
-} */
-
-/*Este es el texto que sale debajo del carrusel*/
-#texto-explicativo {
-  /*falta poner el texto de la familia que pone en el proyecto*/
+/*//////////////////////////////////////////CARRITO//////////////////////////////////////////*/
+#carrito {
+  display: grid;
+  min-height: 300px;
   text-align: center;
-  padding: 15px;
 }
-/*Aquí empieza el footer*/
+
+#totalCarrito {
+  text-align: center;
+}
+#totalCarrito button {
+  margin: 25px 15px;
+}
+#cabeceraCarrito {
+  margin: 5px 0px;
+}
+/*//////////////////////////////////////////FOOTER//////////////////////////////////////////*/
 footer {
   border: 5px solid burlywood;
   margin: 0 auto;
@@ -201,34 +219,15 @@ footer p {
 footer h2 {
   text-align: center;
 }
-div .contacto p {
-  margin-top: 2em;
-  padding-left: 2em;
-  padding-right: 2em;
+#contacto {
+  padding: 2em;
+  text-align: justify;
 }
-
+#contacto h3 {
+  padding: 2em;
+  text-align: justify;
+  margin-bottom: 0.5em;
+}
 p.tiempo {
   margin-top: 1em;
-}
-
-#carrito {
-  display: grid;
-  min-height: 300px;
-  text-align: center;
-}
-/* #resultadoCarrito{
-  overflow-x: hidden;
-  overflow-y: scroll;
-} */
-#totalCarrito {
-  text-align: center;
-}
-#totalCarrito button {
-  margin: 25px 15px;
-}
-#cabeceraCarrito {
-  margin: 5px 0px;
-}
-#comunicacion_usuario{
-  height: 100px;
 }

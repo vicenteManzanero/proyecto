@@ -109,11 +109,10 @@ window.onload = () => {
       if (u.comprobarDatos(d.getElementById("usuario").value, d.getElementById("clave").value)) {//Comprobamos que los datos de correo , password, telf sean correctos.
         iniciarSesionComprobacion(d.getElementById("usuario").value, d.getElementById("clave").value);
        usuarioDelPedido= d.getElementById("usuario").value;
-       console.log(usuarioDelPedido);
         u.cambiarBotonesMenu(botonHistoria);
         u.mostrarPartedeMenu(divHistoria);
       } else {
-        u.mensajesUsuario("Introduce todos los campos correctamente");
+        u.mensajesUsuarioLogin("Introduce todos los campos correctamente",'contenedorMensajeLogin');
       }
     }, false);
 
@@ -129,11 +128,10 @@ window.onload = () => {
       if (u.comprobarDatos(d.getElementById("usuarioRegistro").value, d.getElementById("claveRegistro").value, d.getElementById("telefonoRegistro").value)) {//Comprobamos que los datos de correo , password, telf sean correctos.
         crearNuevoUsuario(d.getElementById("usuarioRegistro").value, d.getElementById("claveRegistro").value, d.getElementById("telefonoRegistro").value);//Si los datos están bien creamos usuario
         usuarioDelPedido= d.getElementById("usuario").value;
-        console.log(usuarioDelPedido);
         u.cambiarBotonesMenu(botonHistoria);
         u.mostrarPartedeMenu(divHistoria);
       } else {
-        u.mensajesUsuario("Introduce todos los campos correctamente");
+        u.mensajesUsuarioLogin("Introduce todos los campos correctamente",'contenedorMensajeLogin2');
       }
     }, false);
     d.getElementById('cerrarCrear').addEventListener('click', () => {

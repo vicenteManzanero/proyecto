@@ -47,7 +47,7 @@ export const obtenerArticulos = async (categoria,productosEnELCarrito,usuarioDel
                         });
                         if(semaforo)productosEnELCarrito.push(pedido);
                        console.log(productosEnELCarrito);
-                        u.enviarProductoCarrito(productosEnELCarrito,'cabeceraCarrito');//Para que nos muestre la cabecera y el pedido.
+                        u.enviarProductoCarrito(productosEnELCarrito,usuarioDelPedido);//Para que nos muestre la cabecera y el pedido.
                         u.mensajesUsuario('Producto añadido al carrito.');
                     }
 

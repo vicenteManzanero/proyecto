@@ -3,13 +3,13 @@ let d = document;
 export const mostrarHistoria = () => {
     let imagenes = ["../img/carrusel_historia/1.jpg", "../img/carrusel_historia/2.jpg", "../img/carrusel_historia/3.jpg", "../img/carrusel_historia/4.jpg", "../img/carrusel_historia/5.jpg", "../img/carrusel_historia/6.jpg"];
     let i = 0;
-   
+
     setInterval(() => {
         let img = d.createElement("img");
         img.setAttribute("src", imagenes[i]);
         img.setAttribute("class", "carrusel");
         d.getElementById('carrusel').innerHTML = img.outerHTML;
-        
+
         i++;
         if (i >= imagenes.length) {
             i = 0;
@@ -40,6 +40,14 @@ export const nuevoUsuarioJSON = (Correo, Telf) => {// Para crear el usuario con 
 }
 export function mensajesUsuario(texto) {//Para comunicar al usuario todo lo que va ocurriendo
     let div = document.getElementById("comunicacion_usuario");
+    div.classList.remove("hidden");
+    div.innerHTML = texto;
+    setTimeout(() => {
+        div.classList.add("hidden");
+    }, 3000);
+}
+export function mensajesUsuarioLogin(texto,donde) {//Para comunicar al usuario todo lo que va ocurriendo
+    let div = document.getElementById(donde);
     div.classList.remove("hidden");
     div.innerHTML = texto;
     setTimeout(() => {
@@ -123,12 +131,12 @@ export const mostrarProducto = (objeto, n) => {
         `;
         d.getElementById(`tipo${n}`).appendChild(divTipo);
     }
-    let logout= d.getElementById('logout');
-    let boton=d.getElementById(`boton${n}`);
-    let tipos=d.getElementById(`tipos${n}`);
-    if(logout.classList.contains("hidden")){//Para dejar deshabilitar esas opciones si no estás logeado;
-        boton.setAttribute("disabled","");
-        tipos.setAttribute("disabled","");
+    let logout = d.getElementById('logout');
+    let boton = d.getElementById(`boton${n}`);
+    let tipos = d.getElementById(`tipos${n}`);
+    if (logout.classList.contains("hidden")) {//Para dejar deshabilitar esas opciones si no estás logeado;
+        boton.setAttribute("disabled", "");
+        tipos.setAttribute("disabled", "");
     }
 }
 
@@ -180,11 +188,11 @@ export const crearCabeceraCarrito = (donde) => {//Crea la cabecera para mostrar 
     <div class= "col d-flex justify-content-center cabeceraArticulo">TOTAL</div>`;
     cabeceraCarrito.appendChild(div);
 }
-export const enviarProductoCarrito = (carrito, usuarioDelPedido)=>{
-    d.getElementById('resultadoCarrito').innerHTML="";//Para cada vez que añadimos o borramos un producto del carrito se vuelva a pintar completamente.
-   let totalCompra=0;
-  
-    carrito.map((objeto)=>{
+export const enviarProductoCarrito = (carrito, usuarioDelPedido) => {
+    d.getElementById('resultadoCarrito').innerHTML = "";//Para cada vez que añadimos o borramos un producto del carrito se vuelva a pintar completamente.
+    let totalCompra = 0;
+
+    carrito.map((objeto) => {
         let div = d.createElement('div');
         div.setAttribute('class', 'row ');
         div.innerHTML = `
@@ -193,31 +201,28 @@ export const enviarProductoCarrito = (carrito, usuarioDelPedido)=>{
     <div class= "col d-flex align-items-center justify-content-center">${objeto.cantidad} ${objeto.tipo}</div>
     <div class= "col d-flex align-items-center justify-content-center">${Math.round((objeto.total + Number.EPSILON) * 100) / 100} €</div>
     `;//El math.Round del final es para que no diera a veces resultados  con muchos decimales;
-    totalCompra+=Math.round((objeto.total + Number.EPSILON) * 100) / 100;
-    d.getElementById('resultadoCarrito').appendChild(div);
-});
-let divTotal = d.createElement('div');
-divTotal.setAttribute('class', 'row ');
-divTotal.innerHTML = `  <div class= "col d-flex align-items-center justify-content-center">El precio total del pedido es de ${totalCompra}€ .     Fecha del pedido:   <input type="date" id="fechaPedido">       <button type="button" class="btn btn-success" id="confirmarPedido">confirmar el Pedido</button></div>`;
-d.getElementById('resultadoCarrito').appendChild(divTotal);
-let botonPedido=d.getElementById("confirmarPedido");
-botonPedido.addEventListener("click",(e)=>{
- let fechasinFiltrar=   d.getElementById("fechaPedido").value;
- let hoy = new Date();
- 
- let fechaPedido = new Date(fechasinFiltrar);
-console.log(fechaPedido.getDay()); //Comparar que no sea 0;
-console.log( fechaPedido.toLocaleDateString());
-console.log(hoy.toLocaleDateString());
-if(fechaPedido>hoy){// falta crear JSON que sea pedido con los datos del carrito e introducirlo en la base de datos.
-    
-     mensajesUsuario('Pedido procesado correctamente.');
-}else mensajesUsuario('Recuerde los domingos estamos cerrados y necesitamos un día para la preparación del pedido.');
+        totalCompra += Math.round((objeto.total + Number.EPSILON) * 100) / 100;
+        d.getElementById('resultadoCarrito').appendChild(div);
+    });
+    let divTotal = d.createElement('div');
+    divTotal.setAttribute('class', 'row ');
+    divTotal.innerHTML = `  <div>El precio total del pedido es de ${totalCompra}€ .Fecha del pedido:<input type="date" id="fechaPedido"><button type="button" class="btn btn-success" id="confirmarPedido">confirmar el Pedido</button></div>`;
+    d.getElementById('totalCarrito').appendChild(divTotal);
+    let botonPedido = d.getElementById("confirmarPedido");
+    botonPedido.addEventListener("click", (e) => {
+        let fechasinFiltrar = d.getElementById("fechaPedido").value;
+        let hoy = new Date();
+        let fechaPedido = new Date(fechasinFiltrar);
+        console.log(fechaPedido.getDay()); //Comparar que no sea 0;
+        console.log(fechaPedido.toLocaleDateString());
+        console.log(hoy.toLocaleDateString());
+        if (fechaPedido > hoy) {// falta crear JSON que sea pedido con los datos del carrito e introducirlo en la base de datos.
+            mensajesUsuario('Pedido procesado correctamente.');
+        } else mensajesUsuario('Recuerde los domingos estamos cerrados y necesitamos un día para la preparación del pedido.');
 
-})
+    })
 
 }
-
 
 export const carritoVacio = () => {
     d.getElementById('carrito').innerHTML = 'El carrito está vacio';

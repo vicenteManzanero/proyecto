@@ -3,22 +3,13 @@ let d = document;
 export const mostrarHistoria = () => {
     let imagenes = ["../img/carrusel_historia/1.jpg", "../img/carrusel_historia/2.jpg", "../img/carrusel_historia/3.jpg", "../img/carrusel_historia/4.jpg", "../img/carrusel_historia/5.jpg", "../img/carrusel_historia/6.jpg"];
     let i = 0;
-<<<<<<< HEAD
    
-=======
-    let texto = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, consequatur enim omnis totam vel veniam est ea voluptatum nulla beatae dolor repellat voluptatibus iusto assumenda deserunt velit doloribus facilis maiores. Cum repudiandae adipisci dolorum ab, ratione earum natus accusamus sunt enim alias non pariatur vitae voluptas culpa molestias dignissimos reiciendis officiis consectetur ducimus expedita fugit. Culpa quis laborum quidem etLorem ipsum dolor sit amet consectetur   adipisicing elit. Repellendus, consequatur enim omnis totam vel veniam est ea voluptatum nulla beatae dolor repellat voluptatibus iusto assumenda deserunt velit doloribus facilis maiores. Cum repudiandae adipisci dolorum ab, ratione earum natus accusamus sunt enim alias non pariatur vitae voluptas culpa molestias dignissimos reiciendis officiis consectetur ducimus expedita fugit. Culpa quis laborum quidem etLorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, consequatur enim omnis totam vel veniam est ea voluptatum nulla beatae dolor repellat voluptatibus iusto assumenda deserunt velit doloribus facilis maiores. Cum repudiandae adipisci dolorum ab, ratione earum natus accusamus sunt enim alias non pariatur vitae voluptas culpa molestias dignissimos reiciendis officiis consectetur ducimus expedita fugit. Culpa quis laborum quidem etLorem ipsum dolor sit amet ';
->>>>>>> 5553f652f48109a47a21db144bbc64cc3c5fe7a2
     setInterval(() => {
         let img = d.createElement("img");
         img.setAttribute("src", imagenes[i]);
         img.setAttribute("class", "carrusel");
         d.getElementById('carrusel').innerHTML = img.outerHTML;
-<<<<<<< HEAD
         
-=======
-        d.getElementById('carrusel').innerHTML += texto;
-
->>>>>>> 5553f652f48109a47a21db144bbc64cc3c5fe7a2
         i++;
         if (i >= imagenes.length) {
             i = 0;

@@ -126,7 +126,7 @@ export const mostrarProducto = (objeto, n) => {
     if (objeto.venta === 'unidad') {
         let divTipo = d.createElement('div');
         divTipo.setAttribute('class', 'col d-flex align-items-center justify-content-center');
-        divTipo.innerHTML = `<input id="tipos${n}"  type="text" class="form-control" placeholder="Cantidad" aria-describedby="basic-addon1">`;
+        divTipo.innerHTML = `<input id="tipos${n}"  type="text" class="form-control" placeholder="Cantidad" value="" aria-describedby="basic-addon1">`;
         d.getElementById(`tipo${n}`).appendChild(divTipo);
     } else {
         let divTipo = d.createElement('div');

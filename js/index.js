@@ -21,13 +21,12 @@ window.onload = () => {
   let botonProducto = d.getElementById("botonProducto");
   let logo = d.getElementById("logo");
   let nombreEmpresa = d.getElementById("nombre");
-  let usuarioDelPedido="";
-  var productosEnELCarrito=[];//Para controlar el carrito que se pierde solo se guardará en la base de datos en caso de completar el pedido.
+  var botonBuscar= d.getElementById("buscarP");
 
+ /*Variables globales */
+ let usuarioDelPedido="";//Para controlar usuario
+ var productosEnELCarrito=[];//Para controlar el carrito que se pierde solo se guardará en la base de datos en caso de completar el pedido.
 
-  /*Final de los botones
-  Inicio de las funciones funciones
-  */
   /*   DIV para ir mostrando y ocultando  */
   let divCarrito = d.getElementById("carrito");
   let divHistoria = d.getElementById("historia");
@@ -43,7 +42,9 @@ window.onload = () => {
   let rollos = d.getElementById("rollos");
   let tortas = d.getElementById("tortas");
 
-
+ /*
+  Inicio de las funciones funciones y eventos
+  */
   hojaldre.addEventListener("click", () => {
     u.mostrarPartedeMenu(divProductosCategorias);
     obtenerArticulos("hojaldre", productosEnELCarrito,usuarioDelPedido);
@@ -67,6 +68,12 @@ window.onload = () => {
   tortas.addEventListener("click", () => {
     u.mostrarPartedeMenu(divProductosCategorias);
     obtenerArticulos("tortas", productosEnELCarrito,usuarioDelPedido);
+  }, false);
+  botonBuscar.addEventListener("click", () => {
+    u.mostrarPartedeMenu(divProductosCategorias);
+    var producto=d.getElementById("busqueda");
+    obtenerArticulos("", productosEnELCarrito,usuarioDelPedido,producto.value);
+    producto.value="";
   }, false);
 
 

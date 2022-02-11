@@ -117,6 +117,7 @@ var modificarM=d.getElementById("modificarM");
    guardarProducto(productos, productoNuevo);
   }, false);
   botonBuscar.addEventListener("click",async()=>{
+
     let cabeceraArticulos=d.getElementById("cabeceraArticulos");
     cabeceraArticulos.innerHTML="";
     let articulos=d.getElementById("resultado");
@@ -124,10 +125,10 @@ var modificarM=d.getElementById("modificarM");
     try{
   crearCabecera();
     const consulta = await query(productos, where('nombre', '!=', ""));
-    let nombreBusqueda=d.getElementById("buscar").value;
+    let nombreBusqueda=d.getElementById("buscar");
     const documentos = await onSnapshot(consulta, (col) => {
       col.docs.map((documento, index) => {
-        if(documento.data().nombre.toUpperCase().includes(nombreBusqueda.toUpperCase())) {
+        if(documento.data().nombre.toUpperCase().includes(nombreBusqueda.value.toUpperCase())) {
           mostrarProducto(documento.data(), index);
        
             d.getElementById(`boton${index}`).addEventListener('click', (e) => {
@@ -182,6 +183,8 @@ var modificarM=d.getElementById("modificarM");
         }
       });
   });    
+  d.getElementById("nombreProductoE").value="";
+  d.getElementById("nombreProductoM").value="";
 }catch (error) {
 console.log(error.message);
 }
@@ -195,6 +198,7 @@ let cabeceraArticulos=d.getElementById("cabeceraArticulos");
 cabeceraArticulos.innerHTML="";
 let articulos=d.getElementById("resultado");
 articulos.innerHTML="";
+d.getElementById("nombreProductoM").value="";
   },false);
 
   modificarM.addEventListener("click",()=>{
@@ -217,7 +221,8 @@ articulos.innerHTML="";
  let cabeceraArticulos=d.getElementById("cabeceraArticulos");
  cabeceraArticulos.innerHTML="";
  let articulos=d.getElementById("resultado");
- articulos.innerHTML="";
+ articulos.innerHTML=" ";
+ d.getElementById("nombreProductoM").value="";
     
       },false);
 

@@ -50,7 +50,7 @@
       
         <label for="radio">Por unidad</label><input type="radio" id="unidad" name="radio" value="unidad" checked >
         <label for="radio"> Por peso</label><input type="radio" id="peso" name="radio"   value="peso">
-        <input type="button" value="Crear producto" id="crear">
+        <input type="button" value="Crear producto" class="btn btn-success" id="crear">
     </form>
     <div id="buscarproducto" class="hidden"> <input id="buscar" type="search" placeholder="producto a buscar" > <input type="button" value="Buscar" id="buscarP" class="btn btn-warning" > </div>
     <form id="modificarProducto" class="hidden">
@@ -82,7 +82,7 @@
     </form>
     <form id="eliminarProducto" class="hidden">
         <input type="hidden" id="idProductoEliminado">
-        <label for="nombre"> nombre: </label><input type="text" id="nombreProductoE" readonly ><input type="button" class="btn btn-danger"value="Eliminar producto" id="eliminarProductoSelecionado">
+        <label for="nombre"> nombre: </label><input type="text" id="nombreProductoE" readonly ><input type="button" class="btn btn-danger" value="Eliminar producto" id="eliminarProductoSelecionado">
         </form>
         <div id="cabeceraArticulos"></div>
         <section id="resultado">

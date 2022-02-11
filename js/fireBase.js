@@ -3,7 +3,6 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
 const firebaseConfig = {
-
   apiKey: "AIzaSyBzA7bJhfOwXAiwL_2cBWFYOqSxQvhwTbg",
   authDomain: "panaderiavictoria-90484.firebaseapp.com",
   projectId: "panaderiavictoria-90484",
